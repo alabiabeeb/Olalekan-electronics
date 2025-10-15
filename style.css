@@ -664,7 +664,7 @@ nav ul li a::after {
     display: flex;
     cursor: pointer;
     margin-left: 100%;
-    margin-top: -29px;
+    margin-top: -40px;
   }
 
   .menu-toggle.active .bar:nth-child(1) {
