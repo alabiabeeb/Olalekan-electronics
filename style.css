@@ -592,7 +592,7 @@ nav ul li a::after {
 }
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
-    .logo h2 {
+ .logo h2 {
   font-size: 1rem;
   font-weight: 600;
   color: #00b4d8;
