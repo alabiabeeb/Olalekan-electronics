@@ -593,7 +593,7 @@ nav ul li a::after {
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
     .logo h1 {
-  font-size: 1rem;
+  font-size: 90px;
   font-weight: 600;
   color: #00b4d8;
   letter-spacing: 1px;
