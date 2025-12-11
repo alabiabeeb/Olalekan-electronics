@@ -1,0 +1,102 @@
+document.addEventListener('DOMContentLoaded', function() {
+  // Get modal elements
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDescription = document.querySelector('.modal-description');
+  const closeBtn = document.querySelector('.close-btn');
+  const closeModalBtn = document.querySelector('.close-modal-btn');
+  const phoneNumberLink = document.querySelector('.phone-number');
+  const whatsappLink = document.querySelector('.whatsapp-link');
+
+  // Get all product cards
+  const productCards = document.querySelectorAll('.product-card');
+
+  // Function to open modal with product info
+  function openModal(event) {
+    const productCard = event.currentTarget;
+    const img = productCard.querySelector('img');
+    const title = productCard.getAttribute('data-title') || img.alt;
+    const phone = productCard.getAttribute('data-phone') || '+234 123 456 7890';
+    const description = productCard.getAttribute('data-description') || 'High-quality product with excellent features.';
+    
+    // Set modal content
+    modalImage.src = img.src;
+    modalImage.alt = img.alt;
+    modalTitle.textContent = title;
+    modalDescription.textContent = description;
+    
+    // Update phone links
+    const cleanPhone = phone.replace(/\s+/g, '');
+    phoneNumberLink.textContent = phone;
+    phoneNumberLink.href = `tel:${cleanPhone}`;
+    whatsappLink.href = `https://wa.me/${cleanPhone}`;
+    
+    // Show modal
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+  }
+
+  // Function to close modal
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+  }
+
+  // Add click event to all product cards
+  productCards.forEach(card => {
+    card.addEventListener('click', openModal);
+    
+    // Make cards keyboard accessible
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `View details for ${card.querySelector('img').alt}`);
+    
+    // Add keyboard support
+    card.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(e);
+      }
+    });
+  });
+
+  // Close modal events
+  closeBtn.addEventListener('click', closeModal);
+  closeModalBtn.addEventListener('click', closeModal);
+  
+  // Close modal when clicking outside content
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  // Navbar toggle for mobile (keeping existing functionality)
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuToggle.classList.toggle("active");
+    });
+  }
+  
+  // Close mobile menu when clicking a link
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+      }
+    });
+  });
+});

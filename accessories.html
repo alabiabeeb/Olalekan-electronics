@@ -6,8 +6,22 @@
   <title>Accessories | Olamileken Electronics</title>
   <link rel="stylesheet" href="accessories.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="new-arrival-text">NEW ARRIVAL</div>
+      <div class="brand-name">WIZZYMONEY Olamileken Electronics</div>
+      <div class="loading-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Header -->
   <header>
     <div class="logo">
@@ -30,270 +44,754 @@
     </nav>
   </header>
 
+  <!-- Image Modal -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div class="modal-image-container">
+        <img id="modalImage" src="" alt="Product Image">
+      </div>
+      <div class="modal-info">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <h3>Call to Order</h3>
+              <a href="tel:+2341234567890" class="phone-number">+234 123 456 7890</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-whatsapp"></i>
+            <div>
+              <h3>WhatsApp</h3>
+              <a href="https://wa.me/2341234567890" target="_blank" class="whatsapp-link">Chat on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <button class="close-modal-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Intro -->
   <section class="intro">
     <h2>Our Accessories Collection</h2>
     <p>Explore top-quality electronics, appliances, and accessories for your home and workspace.</p>
   </section>
 
-  <!-- Products -->
+  <!-- New Arrivals Section -->
+  <h1 style="text-align: center; margin-top: 20px; align-items: center;">New chops New Arrivals</h1>
   <section class="products-grid">
-    <!-- same product cards you listed -->
-    <div class="product-card"><img src="../image/images.jpg" alt="Wireless Headphones"><h3>Wireless Headphones</h3></div>
-    <div class="product-card"><img src="../image/images.jpeg" alt="Mechanical Keyboard"><h3>Mechanical Keyboard</h3></div>
-    <div class="product-card"><img src="../images/kojjh.jpeg" alt="Bluetooth Speaker"><h3>Bluetooth Speaker</h3></div>
-    <div class="product-card"><img src="../image/1.jpg" alt="Power Bank"><h3>Power Bank</h3></div>
-
-    <div class="product-card"><img src="../images/WhatsApp Image 2025-10-65 at 4.21.01 AM.jpeg" alt="Standing Fan"><h3>Standing Fan</h3></div>
-    <div class="product-card"><img src="../image/FA20038.0.FA20038BB.jpg" alt="Ceiling Fan"><h3>Ceiling Fan</h3></div>
-    <div class="product-card"><img src="../image/ea6f16e9-edd3-4df1-9659-72d37a662b72@cps.jpeg" alt="Rechargeable Fan"><h3>Rechargeable Fan</h3></div>
+    <div class="product-card" data-title="Wireless Headphones" data-phone="+2347012345678" data-description="Premium wireless headphones with noise cancellation">
+      <img src="New Arrrival/ARPD0066.JPG" alt="Wireless Headphones">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
     
-    <!-- Refrigerators -->
-    <div class="product-card"><img src="../images/kjkhugy.jpeg" alt="Single Door Refrigerator"><h3>Single Door Refrigerator</h3></div>
-    <div class="product-card"><img src="../images/jnoi.jpeg" alt="Double Door Refrigerator"><h3>Double Door Refrigerator</h3></div>
+    <div class="product-card" data-title="Mechanical Keyboard" data-phone="+2347012345678" data-description="RGB mechanical keyboard with customizable keys">
+      <img src="New Arrrival/BCTG7116.JPG" alt="Mechanical Keyboard">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
+    
+    <div class="product-card" data-title="Bluetooth Speaker" data-phone="+2347012345678" data-description="Portable Bluetooth speaker with 12hr battery life">
+      <img src="New Arrrival/BOLV0827.JPG" alt="Bluetooth Speaker">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
+    
+    <div class="product-card" data-title="Power Bank" data-phone="+2347012345678" data-description="20000mAh fast charging power bank">
+      <img src="New Arrrival/BYHG8756.JPG" alt="Power Bank">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
 
-    <div class="product-card"><img src="../images/tv1.jpeg" alt="Smart LED TV"><h3>Smart LED TV</h3></div>
-    <div class="product-card"><img src="../images/WhatsApp Image 2025-10-15 at 5.28.03 AM.jpeg" alt="Flat Screen TV"><h3>Flat Screen TV</h3></div>
-    <div class="product-card"><img src="../images/curved_tv.jpeg" alt="Curved Smart TV"><h3>Curved Smart TV</h3></div>
+    <div class="product-card" data-title="Standing Fan" data-phone="+2347012345678" data-description="3-speed standing fan with remote control">
+      <img src="New Arrrival/CHGG7841.JPG" alt="Standing Fan">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
 
-    <div class="product-card"><img src="../image/High-Frequency-Off-grid-Solar-power-Inverter.webp" alt="Power Inverter"><h3>Power Inverter</h3></div>
-    <div class="product-card"><img src="../image/download.jpeg" alt="Solar Panel"><h3>Solar Panel</h3></div>
-    <div class="product-card"><img src="../images/j hBhihx.jpeg" alt="Portable Generator"><h3>Portable Generator</h3></div>
+    <div class="product-card" data-title="Ceiling Fan" data-phone="+2347012345678" data-description="Modern ceiling fan with LED light">
+      <img src="New Arrrival/CRFF4981.JPG" alt="Ceiling Fan">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
+
+    <div class="product-card" data-title="Rechargeable Fan" data-phone="+2347012345678" data-description="Portable rechargeable fan with USB charging">
+      <img src="New Arrrival/CZCW0359.JPG" alt="Rechargeable Fan">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
+    
+    <div class="product-card" data-title="Single Door Refrigerator" data-phone="+2347012345678" data-description="Compact single door refrigerator for small spaces">
+      <img src="New Arrrival/DEQS4925.JPG" alt="Single Door Refrigerator">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
+
+    <div class="product-card" data-title="Double Door Refrigerator" data-phone="+2347012345678" data-description="Large capacity double door refrigerator">
+      <img src="New Arrrival/DKUI3241.JPG" alt="Double Door Refrigerator">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
+
+    <div class="product-card" data-title="Smart LED TV" data-phone="+2347012345678" data-description="43-inch Smart LED TV with streaming apps">
+      <img src="New Arrrival/DSJU4262.JPG" alt="Smart LED TV">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
+
+    <div class="product-card" data-title="Flat Screen TV" data-phone="+2347012345678" data-description="Ultra-slim flat screen TV">
+      <img src="New Arrrival/DSML3012.JPG" alt="Flat Screen TV">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
+
+    <div class="product-card" data-title="Curved Smart TV" data-phone="+2347012345678" data-description="Curved screen smart TV for immersive viewing">
+      <img src="New Arrrival/DWCJ2488.JPG" alt="Curved Smart TV">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
+
+    <div class="product-card" data-title="Power Inverter" data-phone="+2347012345678" data-description="1500W power inverter for home backup">
+      <img src="New Arrrival/EASG4707.JPG" alt="Power Inverter">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
+
+    <div class="product-card" data-title="Solar Panel" data-phone="+2347012345678" data-description="300W solar panel for renewable energy">
+      <img src="New Arrrival/EGTX9560.JPG" alt="Solar Panel">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
+
+    <div class="product-card" data-title="Portable Generator" data-phone="+2347012345678" data-description="Silent portable generator for home use">
+      <img src="New Arrrival/EHHF0006.JPG" alt="Portable Generator">
+      <div class="product-overlay">
+        <i class="fas fa-expand-alt"></i>
+        <p>Click to view details</p>
+      </div>
+    </div>
   </section>
 
   <!-- Refrigerator Section -->
-<section class="refrigerator">
-  <h1>Available Refrigerators</h1>
-  <p>Keep your food fresh and beverages cool with our range of energy-efficient refrigerators.</p>
+  <section class="refrigerator">
+    <div class="refrigerator-grid">
+      <div class="product-card" data-title="Double Door Refrigerator" data-phone="+2348123456789" data-description="Energy efficient double door refrigerator">
+        <img src="New Arrrival/ETEF0534.JPG" alt="Double Door Refrigerator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
 
-  <div class="refrigerator-grid">
-    <div class="product-card">
-      <img src="../images/jnoi.jpeg" alt="Double Door Refrigerator">
-      <h3>Double Door Refrigerator</h3>
+      <div class="product-card" data-title="Single Door Refrigerator" data-phone="+2348123456789" data-description="Compact single door refrigerator">
+        <img src="New Arrrival/EZYL1673.JPG" alt="Single Door Refrigerator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Mini Refrigerator" data-phone="+2348123456789" data-description="Mini refrigerator for office or dorm">
+        <img src="New Arrrival/FMBK2715.JPG" alt="Mini Refrigerator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Smart Refrigerator" data-phone="+2348123456789" data-description="Smart refrigerator with touch screen">
+        <img src="New Arrrival/FPQM4392.JPG" alt="Smart Refrigerator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Luxury Refrigerator" data-phone="+2348123456789" data-description="Premium luxury refrigerator">
+        <img src="New Arrrival/FSSI0480.JPG" alt="Luxury Refrigerator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Compact Refrigerator" data-phone="+2348123456789" data-description="Space-saving compact refrigerator">
+        <img src="New Arrrival/FSWO1378.JPG" alt="Compact Refrigerator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Stainless Refrigerator" data-phone="+2348123456789" data-description="Stainless steel finish refrigerator">
+        <img src="New Arrrival/FTYW5037.JPG" alt="Stainless Refrigerator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Retro Refrigerator" data-phone="+2348123456789" data-description="Vintage style retro refrigerator">
+        <img src="New Arrrival/FXEU8169.JPG" alt="Retro Refrigerator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="French Door Refrigerator" data-phone="+2348123456789" data-description="French door refrigerator with water dispenser">
+        <img src="New Arrrival/GEKU5033.JPG" alt="French Door Refrigerator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Side-by-Side Refrigerator" data-phone="+2348123456789" data-description="Side-by-side refrigerator">
+        <img src="New Arrrival/GHHE2580.JPG" alt="Side-by-Side Refrigerator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Top Freezer Refrigerator" data-phone="+2348123456789" data-description="Top freezer refrigerator">
+        <img src="New Arrrival/GIFZ8301.JPG" alt="Top Freezer Refrigerator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Bottom Freezer Refrigerator" data-phone="+2348123456789" data-description="Bottom freezer refrigerator">
+        <img src="New Arrrival/GPJT5259.JPG" alt="Bottom Freezer Refrigerator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="product-card">
-      <img src="../images/WhatsApp Image 2025-10-775 at 4.21.01 AM.jpeg" alt="Single Door Refrigerator">
-      <h3>Single Door Refrigerator</h3>
+  <!-- Television Section -->
+  <section class="television">
+    <div class="television-grid">
+      <div class="product-card" data-title="Smart LED TV" data-phone="+2347012345679" data-description="Smart LED TV with streaming capabilities">
+        <img src="New Arrrival/GVQK9505.JPG" alt="Smart LED TV">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="4K Ultra HD TV" data-phone="+2347012345679" data-description="4K Ultra HD television">
+        <img src="New Arrrival/HIBZ2491.JPG" alt="4K Ultra HD TV">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Curved Screen TV" data-phone="+2347012345679" data-description="Curved screen TV for immersive experience">
+        <img src="New Arrrival/HIJT7218.JPG" alt="Curved Screen TV">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Android TV" data-phone="+2347012345679" data-description="Android TV with Google Assistant">
+        <img src="New Arrrival/HTSM8722.JPG" alt="Android TV">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Frameless Smart TV" data-phone="+2347012345679" data-description="Frameless smart TV design">
+        <img src="New Arrrival/HVEJ2883.JPG" alt="Frameless Smart TV">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="OLED TV" data-phone="+2347012345679" data-description="OLED TV with perfect blacks">
+        <img src="New Arrrival/IAWF2685.JPG" alt="OLED TV">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="QLED TV" data-phone="+2347012345679" data-description="QLED TV with quantum dot technology">
+        <img src="New Arrrival/INIH3217.JPG" alt="QLED TV">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Mini LED TV" data-phone="+2347012345679" data-description="Mini LED TV with local dimming">
+        <img src="New Arrrival/IRQE6180.JPG" alt="Mini LED TV">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="product-card">
-      <img src="../images/WhatsApp Image 2025-10-15 at 4.21.15 AM (2).jpeg" alt="Mini Refrigerator">
-      <h3>Mini Refrigerator</h3>
+  <!-- Sound System Section -->
+  <section class="sound-system">
+    <div class="sound-grid">
+      <div class="product-card" data-title="Bluetooth Speaker" data-phone="+2347012345680" data-description="Portable Bluetooth speaker">
+        <img src="New Arrrival/IUNO6467.JPG" alt="Bluetooth Speaker">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Home Theater System" data-phone="+2347012345680" data-description="5.1 channel home theater system">
+        <img src="New Arrrival/IVRM7556.JPG" alt="Home Theater System">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Soundbar" data-phone="+2347012345680" data-description="Soundbar with subwoofer">
+        <img src="New Arrrival/IZDG6484.JPG" alt="Soundbar">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Mini Home Theater" data-phone="+2347012345680" data-description="Compact mini home theater">
+        <img src="New Arrrival/JHSB5281.JPG" alt="Mini Home Theater">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Studio Speaker" data-phone="+2347012345680" data-description="Professional studio monitor speaker">
+        <img src="New Arrrival/JPSB4980.JPG" alt="Studio Speaker">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+      
+      <div class="product-card" data-title="Studio Speaker" data-phone="+2347012345680" data-description="High-fidelity studio speaker">
+        <img src="New Arrrival/JNIM1812.JPG" alt="Studio Speaker">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+      
+      <div class="product-card" data-title="Studio Speaker" data-phone="+2347012345680" data-description="Premium studio speaker system">
+        <img src="New Arrrival/JXKQ1933.JPG" alt="Studio Speaker">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+      
+      <div class="product-card" data-title="Studio Speaker" data-phone="+2347012345680" data-description="Professional audio speaker">
+        <img src="New Arrrival/KMSN3303.JPG" alt="Studio Speaker">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="product-card">
-      <img src="../images/WhatsApp Image 2025-10-15 at 4.21.15 AM (3).jpeg" alt="Smart Refrigerator">
-      <h3>Smart Refrigerator</h3>
+  <!-- Generator Section -->
+  <section class="generator">
+    <div class="generator-grid">
+      <div class="product-card" data-title="Key Start Generator" data-phone="+2347012345681" data-description="Key start portable generator">
+        <img src="New Arrrival/KURU8533.JPG" alt="Key Start Generator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Manual Start Generator" data-phone="+2347012345681" data-description="Manual pull start generator">
+        <img src="New Arrrival/LLCI5788.JPG" alt="Manual Start Generator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Diesel Generator" data-phone="+2347012345681" data-description="Industrial diesel generator">
+        <img src="New Arrrival/LLJM7471.JPG" alt="Diesel Generator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Petrol Generator" data-phone="+2347012345681" data-description="Petrol powered generator">
+        <img src="New Arrrival/LMUQ7071.JPG" alt="Petrol Generator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Silent Generator" data-phone="+2347012345681" data-description="Silent inverter generator">
+        <img src="New Arrrival/LRXZ0432.JPG" alt="Silent Generator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Compact Generator" data-phone="+2347012345681" data-description="Compact portable generator">
+        <img src="New Arrrival/LZLT2238.JPG" alt="Compact Generator">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="product-card">
-      <img src="../images/WhatsApp Image 2025-10-15 at 4.21.15 AM (1).jpeg" alt="Luxury Refrigerator">
-      <h3>Luxury Refrigerator</h3>
+  <!-- Fans Sections -->
+  <section class="fans">
+    <div class="fan-grid">
+      <div class="product-card" data-title="Standing Fan" data-phone="+2347012345682" data-description="Adjustable standing fan">
+        <img src="New Arrrival/MHTB7444.JPG" alt="Standing Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Ceiling Fan" data-phone="+2347012345682" data-description="Modern ceiling fan">
+        <img src="New Arrrival/MJUF4668.JPG" alt="Ceiling Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Rechargeable Fan" data-phone="+2347012345682" data-description="USB rechargeable fan">
+        <img src="New Arrrival/MMIX1224.JPG" alt="Rechargeable Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Wall Fan" data-phone="+2347012345682" data-description="Wall mounted fan">
+        <img src="New Arrrival/MREL6469.JPG" alt="Wall Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Mini Desk Fan" data-phone="+2347012345682" data-description="Mini desk fan for personal use">
+        <img src="New Arrrival/MYXT7027.JPG" alt="Mini Desk Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card"  data-phone="+2347012345682" data-description="Heavy duty industrial fan">
+        <img src="New Arrrival/NJZR7680.JPG" alt="Industrial Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Tower Fan" data-phone="+2347012345682" data-description="Slim tower fan">
+        <img src="New Arrrival/NXSR9580.JPG" alt="Tower Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+      
+      <div class="product-card" data-title="Tower Fan" data-phone="+2347012345682" data-description="Modern tower fan">
+        <img src="New Arrrival/TWQU0713.JPG" alt="Tower Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="product-card">
-      <img src="../images/WhatsApp Image 2025-1i-15 at 4.21.03 AM.jpeg" alt="Compact Refrigerator">
-      <h3>Compact Refrigerator</h3>
+  <section class="fans">
+    <div class="fan-grid">
+      <div class="product-card" data-title="Standing Fan" data-phone="+2347012345682" data-description="Oscillating standing fan">
+        <img src="New Arrrival/OBCS5275.JPG" alt="Standing Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Ceiling Fan" data-phone="+2347012345682" data-description="Decorative ceiling fan">
+        <img src="New Arrrival/PHRY3277.JPG" alt="Ceiling Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Rechargeable Fan" data-phone="+2347012345682" data-description="Battery operated rechargeable fan">
+        <img src="New Arrrival/PUIS0976.JPG" alt="Rechargeable Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Wall Fan" data-phone="+2347012345682" data-description="Adjustable wall fan">
+        <img src="New Arrrival/QCYF1519.JPG" alt="Wall Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Mini Desk Fan" data-phone="+2347012345682" data-description="Quiet mini desk fan">
+        <img src="New Arrrival/QMQT3651.JPG" alt="Mini Desk Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card"  data-phone="+2347012345682" data-description="Commercial industrial fan">
+        <img src="New Arrrival/RHMR2800.JPG" alt="Industrial Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Tower Fan" data-phone="+2347012345682" data-description="Remote control tower fan">
+        <img src="New Arrrival/RJRL6338.JPG" alt="Tower Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+      
+      <div class="product-card" data-title="Tower Fan" data-phone="+2347012345682" data-description="Smart tower fan">
+        <img src="New Arrrival/TYYC4499.JPG" alt="Tower Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="product-card">
-      <img src="../images/WhatsApp Image 2025-10-15 at 4.21.14 AM.jpeg" alt="Stainless Refrigerator">
-      <h3>Stainless Refrigerator</h3>
+  <section class="fans">
+    <div class="fan-grid">
+      <div class="product-card" data-title="Standing Fan" data-phone="+2347012345682" data-description="Heavy duty standing fan">
+        <img src="New Arrrival/RMHZ3674.JPG" alt="Standing Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Ceiling Fan" data-phone="+2347012345682" data-description="Remote control ceiling fan">
+        <img src="New Arrrival/RZHI2427.JPG" alt="Ceiling Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Rechargeable Fan" data-phone="+2347012345682" data-description="Long-lasting rechargeable fan">
+        <img src="New Arrrival/SAZV5154.JPG" alt="Rechargeable Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Wall Fan" data-phone="+2347012345682" data-description="Metal wall fan">
+        <img src="New Arrrival/SQYU7552.JPG" alt="Wall Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Mini Desk Fan" data-phone="+2347012345682" data-description="USB powered mini fan">
+        <img src="New Arrrival/SUJM8291.JPG" alt="Mini Desk Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card"  data-phone="+2347012345682" data-description="Powerful industrial cooling fan">
+        <img src="New Arrrival/TRQD1249.JPG" alt="Industrial Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Tower Fan" data-phone="+2347012345682" data-description="Digital tower fan">
+        <img src="New Arrrival/TWPK6932.JPG" alt="Tower Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+      
+      <div class="product-card" data-title="Tower Fan" data-phone="+2347012345682" data-description="Energy efficient tower fan">
+        <img src="New Arrrival/UBXP4249.JPG" alt="Tower Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="product-card">
-      <img src="../images/hnnnma.jpeg" alt="Retro Refrigerator">
-      <h3>Retro Refrigerator</h3>
+  <section class="fans">
+    <div class="fan-grid">
+      <div class="product-card" data-title="Standing Fan" data-phone="+2347012345682" data-description="Modern standing fan">
+        <img src="New Arrrival/UIOS5206.JPG" alt="Standing Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Ceiling Fan" data-phone="+2347012345682" data-description="Energy saving ceiling fan">
+        <img src="New Arrrival/UKWX3129.JPG" alt="Ceiling Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Rechargeable Fan" data-phone="+2347012345682" data-description="Multi-speed rechargeable fan">
+        <img src="New Arrrival/UXYY9434.JPG" alt="Rechargeable Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Wall Fan" data-phone="+2347012345682" data-description="Oscillating wall fan">
+        <img src="New Arrrival/UYXU0055.JPG" alt="Wall Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Mini Desk Fan" data-phone="+2347012345682" data-description="Clip-on mini desk fan">
+        <img src="New Arrrival/VKMR5692.JPG" alt="Mini Desk Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card"  data-phone="+2347012345682" data-description="Large industrial floor fan">
+        <img src="New Arrrival/VWWU4523.JPG" alt="Industrial Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+
+      <div class="product-card" data-title="Tower Fan" data-phone="+2347012345682" data-description="Programmable tower fan">
+        <img src="New Arrrival/WTNG8962.JPG" alt="Tower Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
+      
+      <div class="product-card" data-title="Tower Fan" data-phone="+2347012345682" data-description="Premium tower fan">
+        <img src="New Arrrival/XWKS8023.JPG" alt="Tower Fan">
+        <div class="product-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <p>Click to view details</p>
+        </div>
+      </div>
     </div>
-
-    <div class="product-card">
-      <img src="../images/french.jpeg" alt="French Door Refrigerator">
-      <h3>French Door Refrigerator</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/uytyry.jpeg" alt="Side-by-Side Refrigerator">
-      <h3>Side-by-Side Refrigerator</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/mini.jpeg" alt="Top Freezer Refrigerator">
-      <h3>Top Freezer Refrigerator</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../image/img_0796.jpeg" alt="Bottom Freezer Refrigerator">
-      <h3>Bottom Freezer Refrigerator</h3>
-    </div>
-  </div>
-</section>
-<section class="television">
-  <h1>Available Televisions</h1>
-  <p>Experience crystal-clear visuals and immersive sound with our latest collection of smart and LED TVs.</p>
-
-  <div class="television-grid">
-    <div class="product-card">
-      <img src="../images/tv1.jpeg" alt="Smart LED TV">
-      <h3>Smart LED TV</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../image/images (5).jpeg" alt="4K Ultra HD TV">
-      <h3>4K Ultra HD TV</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../image/01QVe8hBCRT13ZbWMxQmEvT-4.webp" alt="Curved Screen TV">
-      <h3>Curved Screen TV</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/curved_tv.jpeg" alt="Android TV">
-      <h3>TCL TV</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/hinesss.jpeg" alt="Frameless Smart TV">
-      <h3>HISENSE TV</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/WhatsApp Image 2025-10-15 at 5.28.03 AM.jpeg" alt="OLED TV">
-      <h3>SMART TV</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/lg smart.jpeg" alt="QLED TV">
-      <h3>LG UHD TV</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/samsung.jpeg" alt="Mini LED TV">
-      <h3>SAMSUNG HD  TV</h3>
-    </div>
-  </div>
-</section>
-<section class="sound-system">
-  <h1>Available Sound Systems</h1>
-  <p>Bring your music and movies to life with our high-quality speakers, home theaters, and soundbars.</p>
-
-  <div class="sound-grid">
-    <div class="product-card">
-      <img src="../images/kojjh.jpeg" alt="Bluetooth Speaker">
-      <h3>Bluetooth Speaker</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/hdrzgh.jpeg" alt="Home Theater System">
-      <h3>Home Theater System</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/Soundbar.jpeg" alt="Soundbar">
-      <h3>Soundbar</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../image/Mini Home Theater.jpg" alt="Mini Home Theater">
-      <h3>Mini Home Theater</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../image/Studio Speaker.webp" alt="Studio Speaker">
-      <h3>Studio Speaker</h3>
-    </div>
-  </div>
-</section>
-<section class="generator">
-  <h1>Available Generators</h1>
-  <p>Keep your home and business powered at all times with our durable and fuel-efficient generators.</p>
-
-  <div class="generator-grid">
-    <div class="product-card">
-      <img src="../images/j hBhihx.jpeg" alt="Key Start Generator">
-      <h3>Key Start Generator</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/Manual Start Generator.jpeg" alt="Manual Start Generator">
-      <h3>Manual Start Generator</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/Diesel Generator.jpeg" alt="Diesel Generator">
-      <h3>Diesel Generator</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../image/Petrol Generator.jpg" alt="Petrol Generator">
-      <h3>Petrol Generator</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../image/1 (6).jpg" alt="Silent Generator">
-      <h3>Silent Generator</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../image/1 (7).jpg" alt="Compact Generator">
-      <h3>Compact Generator</h3>
-    </div>
-  </div>
-</section>
-<section class="fans">
-  <h1>Available Fans</h1>
-  <p>Stay cool and comfortable all year round with our selection of high-performance and stylish fans.</p>
-
-  <div class="fan-grid">
-    <div class="product-card">
-      <img src="../images/WhatsApp Image 2025-10-65 at 4.21.01 AM.jpeg" alt="Standing Fan">
-      <h3>Standing Fan</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../image/FA20038.0.FA20038BB.jpg" alt="Ceiling Fan">
-      <h3>Ceiling Fan</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/WhatsApp Image 2025-10-15 at 5.28.10 AM.jpeg" alt="Rechargeable Fan">
-      <h3>Rechargeable Fan</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../image/wallfan.jpeg" alt="Wall Fan">
-      <h3>Wall Fan</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../image/OFC-04476_ALT01_3000px_3000x.webp" alt="Mini Desk Fan">
-      <h3>Mini Desk Fan</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/WhatsApp Image 2025-10-15 at 4.21.14 AM (1).jpeg" alt="Industrial Fan">
-      <h3>Industrial Fan</h3>
-    </div>
-
-    <div class="product-card">
-      <img src="../images/kohu.jpeg" alt="Tower Fan">
-      <h3>Air Conditioner (AC)</h3>
-    </div>
-  </div>
-</section>
-
-
-
-
-
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2025 Olamileken Electronics. All Rights Reserved.</p>
+    <p class="footer-contact">Need help? Call: <a href="tel:+2341234567890">+234 123 456 7890</a></p>
   </footer>
 
-  <script>
+ <script>
+    // Preloader functionality
+    window.addEventListener('load', function() {
+      // Wait for 2 seconds to show the preloader animation
+      setTimeout(function() {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+          preloader.classList.add('hidden');
+          document.body.classList.add('loaded');
+          
+          // Remove preloader from DOM after animation completes
+          setTimeout(function() {
+            preloader.style.display = 'none';
+          }, 500); // Match the transition duration
+        }
+      }, 2000); // Show preloader for 2 seconds
+    });
+
     // Navbar toggle for mobile
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.getElementById("nav-links");
@@ -301,6 +799,93 @@
     menuToggle.addEventListener("click", () => {
       navLinks.classList.toggle("active");
       menuToggle.classList.toggle("active");
+    });
+
+    // Modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get modal elements
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const closeBtn = document.querySelector('.close-btn');
+      const closeModalBtn = document.querySelector('.close-modal-btn');
+      const phoneNumberLink = document.querySelector('.phone-number');
+      const whatsappLink = document.querySelector('.whatsapp-link');
+
+      // Get all product cards
+      const productCards = document.querySelectorAll('.product-card');
+
+      // Function to open modal with product info
+      function openModal(event) {
+        const productCard = event.currentTarget;
+        const img = productCard.querySelector('img');
+        const title = productCard.getAttribute('data-title') || img.alt;
+        const phone = productCard.getAttribute('data-phone') || '+234 123 456 7890';
+        
+        // Set modal content
+        modalImage.src = img.src;
+        modalImage.alt = img.alt;        
+        // Update phone links
+        const cleanPhone = phone.replace(/\s+/g, '');
+        phoneNumberLink.textContent = phone;
+        phoneNumberLink.href = `tel:${cleanPhone}`;
+        whatsappLink.href = `https://wa.me/${cleanPhone}`;
+        
+        // Show modal
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      }
+
+      // Function to close modal
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+      }
+
+      // Add click event to all product cards
+      productCards.forEach(card => {
+        card.addEventListener('click', openModal);
+        
+        // Make cards keyboard accessible
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `View details for ${card.querySelector('img').alt}`);
+        
+        // Add keyboard support
+        card.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal(e);
+          }
+        });
+      });
+
+      // Close modal events
+      closeBtn.addEventListener('click', closeModal);
+      closeModalBtn.addEventListener('click', closeModal);
+      
+      // Close modal when clicking outside content
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+      
+      // Close modal with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+          }
+        });
+      });
     });
   </script>
 </body>
