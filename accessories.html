@@ -775,33 +775,7 @@
   </footer>
 
  <script>
-    // Preloader functionality
-    window.addEventListener('load', function() {
-      // Wait for 2 seconds to show the preloader animation
-      setTimeout(function() {
-        const preloader = document.getElementById('preloader');
-        if (preloader) {
-          preloader.classList.add('hidden');
-          document.body.classList.add('loaded');
-          
-          // Remove preloader from DOM after animation completes
-          setTimeout(function() {
-            preloader.style.display = 'none';
-          }, 500); // Match the transition duration
-        }
-      }, 2000); // Show preloader for 2 seconds
-    });
-
-    // Navbar toggle for mobile
-    const menuToggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
-
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-      menuToggle.classList.toggle("active");
-    });
-
-    // Modal functionality
+        // Modal functionality
     document.addEventListener('DOMContentLoaded', function() {
       // Get modal elements
       const modal = document.getElementById('imageModal');
@@ -821,26 +795,62 @@
         const title = productCard.getAttribute('data-title') || img.alt;
         const phone = productCard.getAttribute('data-phone') || '08057185714';
         const description = productCard.getAttribute('data-description') || 'Product from WIZZYMONEY Olamileken Electronics';
+        const imageUrl = img.src;
         
         // Set modal content
-        modalImage.src = img.src;
+        modalImage.src = imageUrl;
         modalImage.alt = img.alt;        
         // Update phone links
         const cleanPhone = phone.replace(/\s+/g, '');
         phoneNumberLink.textContent = phone;
         phoneNumberLink.href = `tel:${cleanPhone}`;
         
-        // Create WhatsApp message with product details and image
+        // Create WhatsApp message with product details
         const whatsappMessage = encodeURIComponent(
+          `*🛍️ WIZZYMONEY Olamileken Electronics*\n\n` +
           `Hello! I'm interested in this product:\n\n` +
-          `*${title}*\n` +
-          `${description}\n\n` +
-          `I saw it on WIZZYMONEY Olamileken Electronics website. Can you provide more information and pricing?`
+          `*📝 Description:* ${description}\n\n` +
+          `Please provide more information and pricing for this item.`
         );
         
         // For WhatsApp, we need to use the international format
         const whatsappPhone = '2348057185714'; // 08057185714 without leading 0
         whatsappLink.href = `https://wa.me/${whatsappPhone}?text=${whatsappMessage}`;
+        
+        // Create download link for the image
+        const downloadBtn = document.createElement('a');
+        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download Image';
+        downloadBtn.className = 'download-image-btn';
+        downloadBtn.href = imageUrl;
+        downloadBtn.download = title.replace(/\s+/g, '_') + '.jpg';
+        downloadBtn.style.display = 'block';
+        downloadBtn.style.marginTop = '10px';
+        downloadBtn.style.textAlign = 'center';
+        downloadBtn.style.color = '#0077b6';
+        downloadBtn.style.textDecoration = 'none';
+        downloadBtn.style.fontWeight = '500';
+        
+        // Add download button to modal info
+        const modalInfo = document.querySelector('.modal-info');
+        const existingDownloadBtn = document.querySelector('.download-image-btn');
+        if (existingDownloadBtn) {
+          existingDownloadBtn.remove();
+        }
+        modalInfo.insertBefore(downloadBtn, modalInfo.querySelector('.close-modal-btn'));
+        
+        // Add instructions for sharing image
+        const instructions = document.createElement('p');
+        instructions.innerHTML = '<small>💡 <strong>To share image:</strong> Download image first, then share via WhatsApp</small>';
+        instructions.style.marginTop = '10px';
+        instructions.style.color = '#666';
+        instructions.style.fontSize = '0.8rem';
+        
+        const existingInstructions = document.querySelector('.image-instructions');
+        if (existingInstructions) {
+          existingInstructions.remove();
+        }
+        instructions.className = 'image-instructions';
+        modalInfo.insertBefore(instructions, modalInfo.querySelector('.close-modal-btn'));
         
         // Show modal
         modal.classList.add('active');
