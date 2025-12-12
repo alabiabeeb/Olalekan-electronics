@@ -64,7 +64,7 @@
             <i class="fas fa-whatsapp"></i>
             <div>
               <h3>WhatsApp</h3>
-              <a href="https://wa.me/2348057185714" target="_blank" class="whatsapp-link">Chat on WhatsApp</a>
+              <a href="#" id="whatsappLink" target="_blank" class="whatsapp-link">Chat on WhatsApp</a>
             </div>
           </div>
         </div>
@@ -809,7 +809,7 @@
       const closeBtn = document.querySelector('.close-btn');
       const closeModalBtn = document.querySelector('.close-modal-btn');
       const phoneNumberLink = document.querySelector('.phone-number');
-      const whatsappLink = document.querySelector('.whatsapp-link');
+      const whatsappLink = document.getElementById('whatsappLink');
 
       // Get all product cards
       const productCards = document.querySelectorAll('.product-card');
@@ -820,6 +820,7 @@
         const img = productCard.querySelector('img');
         const title = productCard.getAttribute('data-title') || img.alt;
         const phone = productCard.getAttribute('data-phone') || '08057185714';
+        const description = productCard.getAttribute('data-description') || 'Product from WIZZYMONEY Olamileken Electronics';
         
         // Set modal content
         modalImage.src = img.src;
@@ -828,7 +829,18 @@
         const cleanPhone = phone.replace(/\s+/g, '');
         phoneNumberLink.textContent = phone;
         phoneNumberLink.href = `tel:${cleanPhone}`;
-        whatsappLink.href = `https://wa.me/2348057185714`;
+        
+        // Create WhatsApp message with product details and image
+        const whatsappMessage = encodeURIComponent(
+          `Hello! I'm interested in this product:\n\n` +
+          `*${title}*\n` +
+          `${description}\n\n` +
+          `I saw it on WIZZYMONEY Olamileken Electronics website. Can you provide more information and pricing?`
+        );
+        
+        // For WhatsApp, we need to use the international format
+        const whatsappPhone = '2348057185714'; // 08057185714 without leading 0
+        whatsappLink.href = `https://wa.me/${whatsappPhone}?text=${whatsappMessage}`;
         
         // Show modal
         modal.classList.add('active');
