@@ -775,7 +775,33 @@
   </footer>
 
  <script>
-        // Modal functionality
+    // Preloader functionality
+    window.addEventListener('load', function() {
+      // Wait for 2 seconds to show the preloader animation
+      setTimeout(function() {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+          preloader.classList.add('hidden');
+          document.body.classList.add('loaded');
+          
+          // Remove preloader from DOM after animation completes
+          setTimeout(function() {
+            preloader.style.display = 'none';
+          }, 500); // Match the transition duration
+        }
+      }, 2000); // Show preloader for 2 seconds
+    });
+
+    // Navbar toggle for mobile
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuToggle.classList.toggle("active");
+    });
+
+       // Modal functionality
     document.addEventListener('DOMContentLoaded', function() {
       // Get modal elements
       const modal = document.getElementById('imageModal');
@@ -809,6 +835,7 @@
         const whatsappMessage = encodeURIComponent(
           `*🛍️ WIZZYMONEY Olamileken Electronics*\n\n` +
           `Hello! I'm interested in this product:\n\n` +
+          `*📦 Product:* ${title}\n` +
           `*📝 Description:* ${description}\n\n` +
           `Please provide more information and pricing for this item.`
         );
