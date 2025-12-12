@@ -3,63 +3,733 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | WIZZYMONEY Olamileken Electronics</title>
+  <meta name="description" content="Learn about WIZZYMONEY Olamileken Electronics - Your trusted electronics partner">
+  <title>About Us | WIZZYMONEY Olamileken Electronics</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    header{
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+    /* About Page Specific Styles */
+    .about-hero {
+      background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), url('../images/about-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 140px 20px 80px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .about-hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+      background: linear-gradient(45deg, #007bff, #00b4d8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .about-hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      opacity: 0.9;
+    }
+
+    .brand-highlight {
+      color: #00b4d8;
+      font-weight: 700;
+    }
+
+    /* Mission & Vision */
+    .mission-vision {
+      padding: 80px 20px;
+      background: #f8fafc;
+    }
+
+    .mission-vision .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .mission-card,
+    .vision-card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .mission-card:hover,
+    .vision-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #007bff, #00b4d8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 30px;
+    }
+
+    .card-icon i {
+      font-size: 2.5rem;
+      color: white;
+    }
+
+    .mission-card h2,
+    .vision-card h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #0a192f;
+    }
+
+    .mission-card p,
+    .vision-card p {
+      color: #666;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    /* Our Story Section */
+    .our-story {
+      padding: 100px 20px;
+      background: white;
+    }
+
+    .story-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .story-image {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .story-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .story-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .story-content h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      color: #0a192f;
+      line-height: 1.2;
+    }
+
+    .story-content p {
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .story-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* Values Section */
+    .our-values {
+      padding: 80px 20px;
+      background: #f8fafc;
+    }
+
+    .values-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .values-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .values-header h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #0a192f;
+    }
+
+    .values-header p {
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .value-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 15px;
+      text-align: center;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .value-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #007bff, #00b4d8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .value-icon i {
+      font-size: 2rem;
+      color: white;
+    }
+
+    .value-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #0a192f;
+    }
+
+    .value-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Team Section */
+    .our-team {
+      padding: 100px 20px;
+      background: white;
+    }
+
+    .team-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .team-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .team-header h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #0a192f;
+    }
+
+    .team-header p {
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+    }
+
+    .team-members {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .team-card {
+      background: #f8fafc;
+      border-radius: 20px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .team-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .team-image {
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .team-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .team-card:hover .team-image img {
+      transform: scale(1.1);
+    }
+
+    .team-info {
+      padding: 30px;
+    }
+
+    .team-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #0a192f;
+    }
+
+    .team-role {
+      color: #007bff;
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .team-info p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .team-contact {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .team-contact a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #007bff;
+      color: white;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .team-contact a:hover {
+      background: #0056b3;
+    }
+
+    /* CTA Section */
+    .about-cta {
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #007bff 0%, #00b4d8 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .about-cta .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-cta h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .about-cta p {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .mission-vision .container,
+      .story-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-hero h1 {
+        font-size: 3rem;
+      }
+      
+      .story-content h2,
+      .values-header h2,
+      .team-header h2,
+      .about-cta h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-hero {
+        padding: 120px 20px 60px;
+      }
+      
+      .about-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .story-stats {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .story-content h2,
+      .values-header h2,
+      .team-header h2,
+      .about-cta h2 {
+        font-size: 2rem;
+      }
+      
+      .mission-card,
+      .vision-card,
+      .value-card {
+        padding: 30px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
-<header>
+  <header>
     <div class="logo">
-      <h2><span style="color:#007bffab;font-weight:600;">WIZZYMONEY</span> Olamileken Electronics</h2>
-
+      <h2><span style="color:#007bff;font-weight:700;">WIZZYMONEY</span> Olamileken Electronics</h2>
     </div>
 
-    <div class="menu-toggle" id="menu-toggle">
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
-    </div>
+    </button>
 
     <nav>
       <ul id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="accessories.html">Accessories</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="accessories.html"><i class="fas fa-headphones-alt"></i> Accessories</a></li>
+        <li><a href="#" class="active"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+        <li class="cta-nav"><a href="tel:+2348057185714" class="nav-cta-btn"><i class="fas fa-shopping-cart"></i> Order Now</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- About Section -->
-  <section class="about">
-    <div class="about-container">
-      <div class="about-image">
-        <img src="../images/about-store.png" alt="Olamileken Electronics Store">
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="container">
+      <h1>About <span class="brand-highlight">WIZZYMONEY</span> Olamileken Electronics</h1>
+      <p>Your trusted partner for premium electronics and smart home solutions. Innovation meets reliability in every product we offer.</p>
+      <a href="accessories.html" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Explore Our Products</a>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="mission-vision">
+    <div class="container">
+      <div class="mission-card">
+        <div class="card-icon">
+          <i class="fas fa-bullseye"></i>
+        </div>
+        <h2>Our Mission</h2>
+        <p>To provide cutting-edge electronic solutions that enhance lifestyles while maintaining the highest standards of quality, affordability, and customer satisfaction. We strive to make advanced technology accessible to every home and business in Nigeria.</p>
       </div>
-      <div class="about-content">
-        <h2>About <span class="wizzy">WIZZYMONEY</span> OlAMILEKEN ELECTRONICS</h2>
-        <p>
-          Welcome to <strong>WIZZYMONEY Olamileken Electronics</strong> — your trusted destination for high-quality electronics, accessories, and home appliances.
-          Founded with passion and innovation, we aim to bring the best electronic solutions to every home and business.
-        </p>
-        <p>
-          Our mission is simple: to provide top-notch products at affordable prices, backed by professional service and genuine quality.
-          From televisions and speakers to smart devices and kitchen electronics, we offer everything to make your lifestyle smarter and easier.
-        </p>
-        <p>
-          At <strong>WIZZYMONEY</strong>, we don’t just sell gadgets — we build trust, excellence, and technology for everyone.
-        </p>
-        <a href="accessories.html" class="btn">Explore Products</a>
+      
+      <div class="vision-card">
+        <div class="card-icon">
+          <i class="fas fa-eye"></i>
+        </div>
+        <h2>Our Vision</h2>
+        <p>To become Nigeria's most trusted electronics retailer, recognized for innovation, reliability, and exceptional service. We envision a future where every Nigerian home enjoys the benefits of quality electronics that make life easier and more enjoyable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="our-story">
+    <div class="container">
+      <div class="story-container">
+        <div class="story-image">
+          <img src="../images/about-store.png" alt="Olamileken Electronics Store" loading="lazy">
+        </div>
+        <div class="story-content">
+          <h2>Our Journey Since 2020</h2>
+          <p>Founded in 2020, <strong class="brand-highlight">WIZZYMONEY Olamileken Electronics</strong> began as a small electronics store in Ibadan with a simple goal: to provide quality electronics at fair prices. What started as a passion project has grown into a trusted name in the electronics industry.</p>
+          <p>Over the years, we've expanded our product range from basic home appliances to include smart TVs, advanced sound systems, energy-efficient refrigerators, and innovative home automation solutions. Our commitment to quality and customer satisfaction has helped us build lasting relationships with thousands of satisfied customers.</p>
+          <p>Today, we continue to evolve, bringing the latest technology to our customers while maintaining the personal touch and service excellence that defined our humble beginnings.</p>
+          
+          <div class="story-stats">
+            <div class="stat-item">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">200+</div>
+              <div class="stat-label">Products</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values -->
+  <section class="our-values">
+    <div class="container">
+      <div class="values-container">
+        <div class="values-header">
+          <h2>Our Core Values</h2>
+          <p>The principles that guide everything we do at WIZZYMONEY Olamileken Electronics</p>
+        </div>
+        
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <h3>Quality Excellence</h3>
+            <p>We never compromise on quality. Every product we sell undergoes rigorous testing to ensure it meets our high standards.</p>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Customer Trust</h3>
+            <p>Building lasting relationships through honest communication, fair pricing, and reliable after-sales support.</p>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>Innovation</h3>
+            <p>Staying ahead of technology trends to bring you the latest and most innovative electronic solutions.</p>
+          </div>
+          
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3>Service Passion</h3>
+            <p>We love what we do, and it shows in every interaction. Your satisfaction is our greatest reward.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Team -->
+  <section class="our-team">
+    <div class="container">
+      <div class="team-container">
+        <div class="team-header">
+          <h2>Meet Our Founder</h2>
+          <p>The visionary behind WIZZYMONEY Olamileken Electronics</p>
+        </div>
+        
+        <div class="team-members">
+          <div class="team-card">
+            <div class="team-image">
+              <img src="../images/founder.jpg" alt="Olamilekan Alabi - Founder" loading="lazy">
+            </div>
+            <div class="team-info">
+              <h3>Olamilekan Alabi</h3>
+              <div class="team-role">Founder & CEO</div>
+              <p>With over 5 years of experience in the electronics industry, Olamilekan founded WIZZYMONEY with a vision to revolutionize electronics retail in Nigeria. His passion for technology and commitment to customer satisfaction drives our company's success.</p>
+              <div class="team-contact">
+                <a href="tel:+2348057185714" title="Call"><i class="fas fa-phone"></i></a>
+                <a href="https://wa.me/2348057185714" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:abiodunolamilekan2015@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="about-cta">
+    <div class="container">
+      <h2>Ready to Experience Quality Electronics?</h2>
+      <p>Join thousands of satisfied customers who trust WIZZYMONEY Olamileken Electronics for their electronic needs</p>
+      <div class="cta-buttons">
+        <a href="accessories.html" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i> Shop Products</a>
+        <a href="contact.html" class="btn btn-primary"><i class="fas fa-phone"></i> Contact Us</a>
+        <a href="tel:+2348057185714" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2025 <span class="wizzy">WIZZYMONEY</span> Olamileken Electronics. All Rights Reserved.</p>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-logo"><span style="color:#007bff;">WIZZYMONEY</span> Olamileken Electronics</h3>
+          <p>Your trusted destination for quality electronics and home accessories. Experience innovation, performance, and reliability.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <ul class="contact-info">
+            <li><i class="fas fa-phone"></i> <a href="tel:+2348057185714">08057185714</a></li>
+            <li><i class="fas fa-phone-alt"></i> <a href="tel:+2348163813799">08163813799</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:abiodunolamilekan2015@gmail.com">Email Us</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> WIZZYMONEY Olamileken Electronics. All Rights Reserved.</p>
+        <p class="designer">Founded with passion in 2020 | Growing stronger every day</p>
+      </div>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/2348057185714" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+    }
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinks && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          menuToggle.classList.remove('active');
+        }
+      });
+    });
+
+    // Update current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Add scroll effect to header
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Add animation to stats
+    const stats = document.querySelectorAll('.stat-number');
+    stats.forEach(stat => {
+      const target = parseInt(stat.textContent);
+      let current = 0;
+      const increment = target / 50;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          stat.textContent = target + '+';
+          clearInterval(timer);
+        } else {
+          stat.textContent = Math.floor(current) + '+';
+        }
+      }, 30);
+    });
+  </script>
 </body>
 </html>

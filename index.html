@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Olamileken Electronics</title>
+  <meta name="description" content="Premium electronics store offering smart TVs, refrigerators, sound systems, and home accessories">
+  <title>Olamileken Electronics - Premium Electronics Store</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -14,7 +15,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: #0a192f;
+      background: linear-gradient(135deg, #0a192f 0%, #0f3460 100%);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -29,75 +30,82 @@
 
     .preloader-content {
       text-align: center;
-      animation: pulse 1.5s infinite alternate;
+      animation: float 3s ease-in-out infinite;
     }
 
     .new-arrival-text {
       font-size: 4rem;
-      font-weight: 700;
-      color: #007bffab;
+      font-weight: 800;
+      color: #007bff;
       text-transform: uppercase;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       margin-bottom: 20px;
-      text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-      position: relative;
-    }
-
-    .new-arrival-text::after {
-      content: 'NEW ARRIVAL';
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      color: #0056b3;
-      z-index: -1;
+      text-shadow: 
+        0 0 20px rgba(0, 123, 255, 0.8),
+        0 0 40px rgba(0, 123, 255, 0.4);
+      background: linear-gradient(45deg, #007bff, #00b4d8, #007bff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: gradientShift 3s ease infinite;
     }
 
     .brand-name {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: #fff;
       margin-top: 20px;
-      opacity: 0.8;
+      opacity: 0.9;
       letter-spacing: 2px;
+      font-weight: 500;
     }
 
     .brand-name span {
-      color: #007bffab;
-      font-weight: 600;
+      color: #00b4d8;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(0, 180, 216, 0.5);
     }
 
     .loading-dots {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin-top: 30px;
+      gap: 12px;
+      margin-top: 40px;
     }
 
     .dot {
-      width: 12px;
-      height: 12px;
-      background: #007bffab;
+      width: 16px;
+      height: 16px;
+      background: linear-gradient(45deg, #007bff, #00b4d8);
       border-radius: 50%;
       animation: bounce 1.4s infinite ease-in-out both;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
     }
 
     .dot:nth-child(1) { animation-delay: -0.32s; }
     .dot:nth-child(2) { animation-delay: -0.16s; }
     .dot:nth-child(3) { animation-delay: 0s; }
 
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-        opacity: 1;
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
       }
-      100% {
-        transform: scale(1.05);
-        opacity: 0.8;
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes gradientShift {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
       }
     }
 
     @keyframes bounce {
       0%, 80%, 100% {
-        transform: scale(0);
+        transform: scale(0.6);
         opacity: 0.3;
       }
       40% {
@@ -112,35 +120,46 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from { 
+        opacity: 0; 
+        transform: translateY(20px);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0);
+      }
     }
 
     /* Responsive preloader */
     @media (max-width: 768px) {
       .new-arrival-text {
         font-size: 2.5rem;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
       }
       
       .brand-name {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+      }
+      
+      .dot {
+        width: 14px;
+        height: 14px;
       }
     }
 
     @media (max-width: 480px) {
       .new-arrival-text {
         font-size: 2rem;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
       }
       
       .brand-name {
-        font-size: 1rem;
+        font-size: 1.2rem;
       }
       
       .dot {
-        width: 10px;
-        height: 10px;
+        width: 12px;
+        height: 12px;
       }
     }
   </style>
@@ -159,64 +178,361 @@
     </div>
   </div>
 
+  <!-- Quick Contact Bar -->
+  <div class="contact-bar">
+    <div class="container">
+      <div class="contact-info">
+        <a href="tel:+2348057185714"><i class="fas fa-phone"></i> 08057185714</a>
+        <a href="tel:+2348163813799"><i class="fas fa-phone-alt"></i> 08163813799</a>
+        <a href="mailto:abiodunolamilekan2015@gmail.com"><i class="fas fa-envelope"></i> Email Us</a>
+      </div>
+      <div class="social-icons">
+        <a href="https://wa.me/2348057185714" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
   <header>
-    <div class="logo">
-      <h2><span style="color:#007bffab;font-weight:600; ">WIZZYMONEY</span> Olamileken Electronics</h2>
-    </div>
+    <div class="container">
+      <div class="logo">
+        <h1><span class="brand-highlight">WIZZYMONEY</span> Olamileken Electronics</h1>
+        <p class="tagline">Your Trusted Electronics Partner</p>
+      </div>
 
-    <div class="menu-toggle" id="menu-toggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
 
-    <nav>
-      <ul id="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="accessories.html">Accessories</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+      <nav>
+        <ul id="nav-links">
+          <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="accessories.html"><i class="fas fa-headphones-alt"></i> Accessories</a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+          <li class="cta-nav"><a href="tel:+2348057185714" class="nav-cta-btn"><i class="fas fa-shopping-cart"></i> Order Now</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-      <h2>Smart Electronics for Modern Living</h2>
-      <p>Shop the latest TVs, refrigerators, sound systems, and home accessories — all in one place.</p>
-      <button class="btn"><a href="accessories.html">Shop Now</a></button>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Smart Electronics for <span class="highlight">Modern Living</span></h1>
+          <p class="hero-description">
+            Discover the latest TVs, refrigerators, sound systems, and premium home accessories. 
+            Quality products with exceptional performance at unbeatable prices.
+          </p>
+          <div class="hero-stats">
+            <div class="stat">
+              <i class="fas fa-box"></i>
+              <div>
+                <h3>200+</h3>
+                <p>Products</p>
+              </div>
+            </div>
+            <div class="stat">
+              <i class="fas fa-star"></i>
+              <div>
+                <h3>4.9</h3>
+                <p>Rating</p>
+              </div>
+            </div>
+            <div class="stat">
+              <i class="fas fa-shipping-fast"></i>
+              <div>
+                <h3>24h</h3>
+                <p>Delivery</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-buttons">
+            <a href="accessories.html" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Shop Now</a>
+            <a href="tel:+2348057185714" class="btn btn-secondary"><i class="fas fa-phone"></i> Call to Order</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="image-slider">
+            <div class="slide active">
+              <img src="../images/tv1.jpeg" alt="Smart LED TV">
+            </div>
+            <div class="slide">
+              <img src="../images/jnoi.jpeg" alt="Refrigerator">
+            </div>
+            <div class="slide">
+              <img src="../images/hdrzgh.jpeg" alt="Bluetooth Speaker">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- Featured Categories -->
+  <section class="categories">
+    <div class="container">
+      <h2 class="section-title">Shop by Category</h2>
+      <p class="section-subtitle">Browse our premium collection of electronics</p>
+      
+      <div class="category-grid">
+        <a href="accessories.html#televisions" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-tv"></i>
+          </div>
+          <h3>Televisions</h3>
+          <p>Smart, LED, 4K & OLED TVs</p>
+        </a>
+        
+        <a href="accessories.html#refrigerators" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-snowflake"></i>
+          </div>
+          <h3>Refrigerators</h3>
+          <p>Single & Double Door Models</p>
+        </a>
+        
+        <a href="accessories.html#sound-systems" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-volume-up"></i>
+          </div>
+          <h3>Sound Systems</h3>
+          <p>Speakers & Home Theaters</p>
+        </a>
+        
+        <a href="accessories.html#fans" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-fan"></i>
+          </div>
+          <h3>Fans</h3>
+          <p>Standing, Ceiling & Portable</p>
+        </a>
+        
+        <a href="accessories.html#generators" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Generators</h3>
+          <p>Silent & Portable Power</p>
+        </a>
+        
+        <a href="accessories.html" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-plug"></i>
+          </div>
+          <h3>Accessories</h3>
+          <p>All Electronic Accessories</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
   <section class="products">
-    <h2 class="section-title">Featured Products</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="../images/tv1.jpeg" alt="Smart LED TV">
-        <h3>Smart LED TV</h3>
-        <p>Crystal-clear 4K display with HDR technology.</p>
-        <button class="btn" onclick="openPopup()">Buy Now</button>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Products</h2>
+        <p class="section-subtitle">Top selling products this month</p>
       </div>
+      
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-badge">BESTSELLER</div>
+          <div class="product-image">
+            <img src="../images/tv1.jpeg" alt="Smart LED TV" loading="lazy">
+            <div class="product-overlay">
+              <button class="quick-view-btn" onclick="openPopup()">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Smart LED TV 55"</h3>
+            <p class="product-description">4K Ultra HD with HDR10+ and Smart Features</p>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>(4.8)</span>
+            </div>
+            <button class="btn btn-primary" onclick="openPopup()">Inquire Price</button>
+          </div>
+        </div>
 
-      <div class="product-card">
-        <img src="../images/jnoi.jpeg" alt="Double Door Refrigerator">
-        <h3>Double Door Refrigerator</h3>
-        <p>Energy-efficient cooling with large storage.</p>
-        <button class="btn" onclick="openPopup()">Buy Now</button>
+        <div class="product-card">
+          <div class="product-badge new">NEW</div>
+          <div class="product-image">
+            <img src="../images/jnoi.jpeg" alt="Double Door Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <button class="quick-view-btn" onclick="openPopup()">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Double Door Refrigerator</h3>
+            <p class="product-description">Energy-efficient with frost-free technology</p>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(5.0)</span>
+            </div>
+            <button class="btn btn-primary" onclick="openPopup()">Inquire Price</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/hdrzgh.jpeg" alt="Bluetooth Speaker" loading="lazy">
+            <div class="product-overlay">
+              <button class="quick-view-btn" onclick="openPopup()">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Bluetooth Speaker</h3>
+            <p class="product-description">360° sound with 24-hour battery life</p>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>(4.7)</span>
+            </div>
+            <button class="btn btn-primary" onclick="openPopup()">Inquire Price</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/WhatsApp Image 2025-10-15 at 4.21.16 AM.jpeg" alt="Steam Iron" loading="lazy">
+            <div class="product-overlay">
+              <button class="quick-view-btn" onclick="openPopup()">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Steam Iron</h3>
+            <p class="product-description">Anti-drip technology with ceramic soleplate</p>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(5.0)</span>
+            </div>
+            <button class="btn btn-primary" onclick="openPopup()">Inquire Price</button>
+          </div>
+        </div>
       </div>
-
-      <div class="product-card">
-        <img src="../images/hdrzgh.jpeg" alt="Bluetooth Speaker">
-        <h3>Bluetooth Speaker</h3>
-        <p>Powerful bass and crystal-clear sound.</p>
-        <button class="btn" onclick="openPopup()">Buy Now</button>
+      
+      <div class="text-center">
+        <a href="accessories.html" class="btn btn-secondary"><i class="fas fa-eye"></i> View All Products</a>
       </div>
+    </div>
+  </section>
 
-      <div class="product-card">
-        <img src="../images/WhatsApp Image 2025-10-15 at 4.21.16 AM.jpeg" alt="Steam Iron">
-        <h3>Steam Iron</h3>
-        <p>Effortless ironing with anti-drip technology.</p>
-        <button class="btn" onclick="openPopup()">Buy Now</button>
+  <!-- Why Choose Us -->
+  <section class="why-us">
+    <div class="container">
+      <h2 class="section-title">Why Choose Olamileken Electronics?</h2>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Quality Guarantee</h3>
+          <p>All products come with warranty and quality assurance</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-truck"></i>
+          </div>
+          <h3>Fast Delivery</h3>
+          <p>Same-day delivery available within Ibadan</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>24/7 Support</h3>
+          <p>Round-the-clock customer service and technical support</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-tags"></i>
+          </div>
+          <h3>Best Prices</h3>
+          <p>Competitive pricing with no hidden charges</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-image">
+          <img src="../images/about-store.png" alt="Olamileken Electronics Store" loading="lazy">
+          <div class="experience-badge">
+            <span>5+</span>
+            <p>Years Experience</p>
+          </div>
+        </div>
+        <div class="about-text">
+          <h2>About Olamileken Electronics</h2>
+          <p>
+            At <strong class="highlight">Olamileken Electronics</strong>, we provide the latest and most reliable
+            electronic devices and home accessories for modern living. From smart TVs to powerful 
+            sound systems and energy-efficient appliances, we bring innovation, quality, and style 
+            to your home.
+          </p>
+          <p>
+            With years of trusted service and a passion for technology, we aim to make every 
+            purchase smooth, affordable, and satisfying. Our commitment to customer satisfaction 
+            has made us a trusted name in electronics retail.
+          </p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <h3>500+</h3>
+              <p>Happy Customers</p>
+            </div>
+            <div class="stat-item">
+              <h3>200+</h3>
+              <p>Products Available</p>
+            </div>
+            <div class="stat-item">
+              <h3>24/7</h3>
+              <p>Customer Support</p>
+            </div>
+          </div>
+          <a href="about.html" class="btn btn-primary"><i class="fas fa-info-circle"></i> Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Upgrade Your Home?</h2>
+        <p>Get premium electronics at unbeatable prices. Contact us today!</p>
+        <div class="cta-buttons">
+          <a href="tel:+2348057185714" class="btn btn-primary"><i class="fas fa-phone"></i> Call Now: 08057185714</a>
+          <a href="https://wa.me/2348057185714" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+        </div>
       </div>
     </div>
   </section>
@@ -225,94 +541,133 @@
   <div id="popup" class="popup">
     <div class="popup-content">
       <span class="close" onclick="closePopup()">&times;</span>
-      <h3>Olamileken Electronics</h3>
-      <p><strong>Owner:</strong> Olamilekan Alabi</p>
-      <p><strong>Phone:</strong> +234 8163813799,+234 8057185714</p>
-      <p><strong>WhatsApp:</strong> <a href="https://wa.me/2348123456789" target="_blank">Chat on WhatsApp</a></p>
-      <p><strong>Email:</strong> <a href="mailto:info@olamilekenelectronics.com">info@olamilekenelectronics.com</a></p>
-      <p><strong>Address:</strong>  Drug junction ogunpa,Ibadan</p>
+      <div class="popup-header">
+        <h3>Olamileken Electronics</h3>
+        <p class="subtitle">Your Trusted Electronics Partner</p>
+      </div>
+      <div class="popup-body">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-user"></i>
+            <div>
+              <h4>Owner</h4>
+              <p>Olamilekan Alabi</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h4>Phone Numbers</h4>
+              <p><a href="tel:+2348163813799">08163813799</a></p>
+              <p><a href="tel:+2348057185714">08057185714</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <div>
+              <h4>WhatsApp</h4>
+              <p><a href="https://wa.me/2348057185714" target="_blank">Chat Now</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:abiodunolamilekan2015@gmail.com">abiodunolamilekan2015@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Location</h4>
+              <p>Drug Junction Ogunpa, Ibadan</p>
+            </div>
+          </div>
+        </div>
+        <div class="business-hours">
+          <h4>Business Hours</h4>
+          <p>Monday - Saturday: 8:00 AM - 7:00 PM</p>
+          <p>Sunday: 10:00 AM - 5:00 PM</p>
+        </div>
+      </div>
+      <div class="popup-footer">
+        <button class="btn btn-primary" onclick="window.open('tel:+2348057185714')"><i class="fas fa-phone"></i> Call Now</button>
+        <button class="btn btn-whatsapp" onclick="window.open('https://wa.me/2348057185714')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+      </div>
     </div>
   </div>
 
-  <section class="about">
-    <div class="about-container">
-      <div class="about-image">
-        <img src="../images/about-store.png" alt="Olamileken Electronics Store">
-      </div>
-      <div class="about-text">
-        <h2>About Olamileken Electronics</h2>
-        <p>
-          At <strong>Olamileken Electronics</strong>, we provide the latest and most reliable
-          electronic devices and home accessories for modern living.  
-          From smart TVs to powerful sound systems and energy-efficient appliances,  
-          we bring innovation, quality, and style to your home.
-        </p>
-        <p>
-          With years of trusted service and a passion for technology,  
-          we aim to make every purchase smooth, affordable, and satisfying.
-        </p>
-        <button class="btn">Learn More</button>
-      </div>
-    </div>
-  </section>
-
+  <!-- Footer -->
   <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-about">
-        <h3>Olamileken Electronics</h3>
-        <p>
-          Your trusted destination for quality electronics and home accessories.
-          Experience innovation, performance, and reliability in every product.
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Accessories</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-contact">
-        <h4>Contact Us</h4>
-        <p>
-          Email: <a href="mailto:abiodunolamilekan2015@gmail.com">abiodunolamilekan2015@gmail.com</a>
-        </p>
-        <p>Phone: +234 8163813799,+234 8057185714</p>
-        <p>Location: Drug junction ogunpa,Ibadan</p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-logo">WIZZYMONEY Olamileken Electronics</h3>
+          <p>Your trusted destination for quality electronics and home accessories. Experience innovation, performance, and reliability in every product.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/2348057185714" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="accessories.html"><i class="fas fa-chevron-right"></i> Accessories</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <ul class="contact-info">
+            <li><i class="fas fa-phone"></i> <a href="tel:+2348057185714">08057185714</a></li>
+            <li><i class="fas fa-phone-alt"></i> <a href="tel:+2348163813799">08163813799</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:abiodunolamilekan2015@gmail.com">Email Us</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> Drug Junction Ogunpa, Ibadan</li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Newsletter</h4>
+          <p>Subscribe for updates on new arrivals and special offers</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
         </div>
       </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2025 Olamileken Electronics. All Rights Reserved.</p>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Olamileken Electronics. All Rights Reserved.</p>
+        <p class="designer">Designed with <i class="fas fa-heart"></i> for premium electronics shopping</p>
+      </div>
     </div>
   </footer>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/2348057185714" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <script>
     // Preloader functionality
     window.addEventListener('load', function() {
-      // Wait for 2 seconds to show the preloader animation
       setTimeout(function() {
         const preloader = document.getElementById('preloader');
         if (preloader) {
           preloader.classList.add('hidden');
           document.body.classList.add('loaded');
           
-          // Remove preloader from DOM after animation completes
           setTimeout(function() {
             preloader.style.display = 'none';
-          }, 500); // Match the transition duration
+          }, 500);
         }
-      }, 2000); // Show preloader for 2 seconds
+      }, 2000);
     });
 
     // Mobile menu toggle
@@ -323,24 +678,8 @@
       menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         menuToggle.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
       });
-    }
-
-    // Popup functionality
-    function openPopup() {
-      document.getElementById("popup").style.display = "flex";
-    }
-
-    function closePopup() {
-      document.getElementById("popup").style.display = "none";
-    }
-
-    // Close popup when clicking outside
-    window.onclick = function(event) {
-      const popup = document.getElementById("popup");
-      if (event.target == popup) {
-        popup.style.display = "none";
-      }
     }
 
     // Close mobile menu when clicking a link
@@ -349,8 +688,92 @@
         if (navLinks && navLinks.classList.contains('active')) {
           navLinks.classList.remove('active');
           menuToggle.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
         }
       });
+    });
+
+    // Popup functionality
+    function openPopup() {
+      document.getElementById("popup").style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+
+    // Close popup when clicking outside
+    window.onclick = function(event) {
+      const popup = document.getElementById("popup");
+      if (event.target == popup) {
+        closePopup();
+      }
+    }
+
+    // Close popup with ESC key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closePopup();
+      }
+    });
+
+    // Image slider
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+
+    // Auto slide every 5 seconds
+    setInterval(nextSlide, 5000);
+
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        
+        // Here you would typically send this to your backend
+        alert('Thank you for subscribing to our newsletter!');
+        this.reset();
+      });
+    }
+
+    // Update current year
+    document.querySelector('.footer-bottom p:first-child').innerHTML = 
+      `&copy; ${new Date().getFullYear()} Olamileken Electronics. All Rights Reserved.`;
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Add scroll effect to header
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     });
   </script>
 </body>

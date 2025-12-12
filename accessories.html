@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Premium electronics and accessories from WIZZYMONEY Olamileken Electronics">
   <title>Accessories | Olamileken Electronics</title>
   <link rel="stylesheet" href="accessories.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Preloader -->
+  <!-- Preloader -->
   <div id="preloader">
     <div class="preloader-content">
       <div class="new-arrival-text">NEW ARRIVAL</div>
@@ -25,21 +28,22 @@
   <!-- Header -->
   <header>
     <div class="logo">
-      <h1><span class="brand">WIZZYMONEY</span> Olamileken Electronics</h1>
+      <h2><span style="color:#007bff;font-weight:700;">WIZZYMONEY</span> Olamileken Electronics</h2>
     </div>
 
-    <div class="menu-toggle" id="menu-toggle">
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
-    </div>
+    </button>
 
     <nav>
       <ul id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="accessories.html" class="active">Accessories</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="accessories.html"><i class="fas fa-headphones-alt"></i> Accessories</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="#" class="active"><i class="fas fa-phone-alt"></i> Contact</a></li>
+        <li class="cta-nav"><a href="tel:+2348057185714" class="nav-cta-btn"><i class="fas fa-shopping-cart"></i> Order Now</a></li>
       </ul>
     </nav>
   </header>
@@ -47,895 +51,2004 @@
   <!-- Image Modal -->
   <div id="imageModal" class="modal">
     <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <div class="modal-image-container">
-        <img id="modalImage" src="" alt="Product Image">
-      </div>
-      <div class="modal-info">
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fas fa-phone-alt"></i>
-            <div>
-              <h3>Call to Order</h3>
-              <a href="tel:08057185714" class="phone-number">08057185714</a>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-whatsapp"></i>
-            <div>
-              <h3>WhatsApp</h3>
-              <a href="#" id="whatsappLink" target="_blank" class="whatsapp-link">Chat on WhatsApp</a>
-            </div>
-          </div>
+      <button class="close-btn" aria-label="Close modal">&times;</button>
+      <div class="modal-body">
+        <div class="modal-image-container">
+          <img id="modalImage" src="" alt="Product Image">
         </div>
-        <button class="close-modal-btn">Close</button>
+        <div class="modal-info">
+          <div class="product-details">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <div class="product-tags">
+              <span class="tag new">NEW</span>
+              <span class="tag bestseller">BESTSELLER</span>
+            </div>
+          </div>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <div>
+                <h3>Call to Order</h3>
+                <a href="tel:08057185714" class="phone-number">08057185714</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-whatsapp"></i>
+              <div>
+                <h3>WhatsApp</h3>
+                <button id="whatsappBtn" class="whatsapp-btn">
+                  <i class="fab fa-whatsapp"></i> Chat Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <button class="close-modal-btn"><i class="fas fa-times"></i> Close</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Intro -->
-  <section class="intro">
-    <h2>Our Accessories Collection</h2>
-    <p>Explore top-quality electronics, appliances, and accessories for your home and workspace.</p>
-  </section>
-
-  <!-- New Arrivals Section -->
-  <h1 style="text-align: center; margin-top: 20px; align-items: center;">New chops New Arrivals</h1>
-  <section class="products-grid">
-    <div class="product-card" data-title="Wireless Headphones" data-phone="08057185714" data-description="Premium wireless headphones with noise cancellation">
-      <img src="New Arrrival/ARPD0066.JPG" alt="Wireless Headphones">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-    
-    <div class="product-card" data-title="Mechanical Keyboard" data-phone="08057185714" data-description="RGB mechanical keyboard with customizable keys">
-      <img src="New Arrrival/BCTG7116.JPG" alt="Mechanical Keyboard">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-    
-    <div class="product-card" data-title="Bluetooth Speaker" data-phone="08057185714" data-description="Portable Bluetooth speaker with 12hr battery life">
-      <img src="New Arrrival/BOLV0827.JPG" alt="Bluetooth Speaker">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-    
-    <div class="product-card" data-title="Power Bank" data-phone="08057185714" data-description="20000mAh fast charging power bank">
-      <img src="New Arrrival/BYHG8756.JPG" alt="Power Bank">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-
-    <div class="product-card" data-title="Standing Fan" data-phone="08057185714" data-description="3-speed standing fan with remote control">
-      <img src="New Arrrival/CHGG7841.JPG" alt="Standing Fan">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-
-    <div class="product-card" data-title="Ceiling Fan" data-phone="08057185714" data-description="Modern ceiling fan with LED light">
-      <img src="New Arrrival/CRFF4981.JPG" alt="Ceiling Fan">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-
-    <div class="product-card" data-title="Rechargeable Fan" data-phone="08057185714" data-description="Portable rechargeable fan with USB charging">
-      <img src="New Arrrival/CZCW0359.JPG" alt="Rechargeable Fan">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-    
-    <div class="product-card" data-title="Single Door Refrigerator" data-phone="08057185714" data-description="Compact single door refrigerator for small spaces">
-      <img src="New Arrrival/DEQS4925.JPG" alt="Single Door Refrigerator">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-
-    <div class="product-card" data-title="Double Door Refrigerator" data-phone="08057185714" data-description="Large capacity double door refrigerator">
-      <img src="New Arrrival/DKUI3241.JPG" alt="Double Door Refrigerator">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-
-    <div class="product-card" data-title="Smart LED TV" data-phone="08057185714" data-description="43-inch Smart LED TV with streaming apps">
-      <img src="New Arrrival/DSJU4262.JPG" alt="Smart LED TV">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-
-    <div class="product-card" data-title="Flat Screen TV" data-phone="08057185714" data-description="Ultra-slim flat screen TV">
-      <img src="New Arrrival/DSML3012.JPG" alt="Flat Screen TV">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-
-    <div class="product-card" data-title="Curved Smart TV" data-phone="08057185714" data-description="Curved screen smart TV for immersive viewing">
-      <img src="New Arrrival/DWCJ2488.JPG" alt="Curved Smart TV">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-
-    <div class="product-card" data-title="Power Inverter" data-phone="08057185714" data-description="1500W power inverter for home backup">
-      <img src="New Arrrival/EASG4707.JPG" alt="Power Inverter">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-
-    <div class="product-card" data-title="Solar Panel" data-phone="08057185714" data-description="300W solar panel for renewable energy">
-      <img src="New Arrrival/EGTX9560.JPG" alt="Solar Panel">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-
-    <div class="product-card" data-title="Portable Generator" data-phone="08057185714" data-description="Silent portable generator for home use">
-      <img src="New Arrrival/EHHF0006.JPG" alt="Portable Generator">
-      <div class="product-overlay">
-        <i class="fas fa-expand-alt"></i>
-        <p>Click to view details</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Refrigerator Section -->
-  <section class="refrigerator">
-    <div class="refrigerator-grid">
-      <div class="product-card" data-title="Double Door Refrigerator" data-phone="08057185714" data-description="Energy efficient double door refrigerator">
-        <img src="New Arrrival/ETEF0534.JPG" alt="Double Door Refrigerator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Single Door Refrigerator" data-phone="08057185714" data-description="Compact single door refrigerator">
-        <img src="New Arrrival/EZYL1673.JPG" alt="Single Door Refrigerator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Mini Refrigerator" data-phone="08057185714" data-description="Mini refrigerator for office or dorm">
-        <img src="New Arrrival/FMBK2715.JPG" alt="Mini Refrigerator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Smart Refrigerator" data-phone="08057185714" data-description="Smart refrigerator with touch screen">
-        <img src="New Arrrival/FPQM4392.JPG" alt="Smart Refrigerator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Luxury Refrigerator" data-phone="08057185714" data-description="Premium luxury refrigerator">
-        <img src="New Arrrival/FSSI0480.JPG" alt="Luxury Refrigerator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Compact Refrigerator" data-phone="08057185714" data-description="Space-saving compact refrigerator">
-        <img src="New Arrrival/FSWO1378.JPG" alt="Compact Refrigerator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Stainless Refrigerator" data-phone="08057185714" data-description="Stainless steel finish refrigerator">
-        <img src="New Arrrival/FTYW5037.JPG" alt="Stainless Refrigerator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Retro Refrigerator" data-phone="08057185714" data-description="Vintage style retro refrigerator">
-        <img src="New Arrrival/FXEU8169.JPG" alt="Retro Refrigerator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="French Door Refrigerator" data-phone="08057185714" data-description="French door refrigerator with water dispenser">
-        <img src="New Arrrival/GEKU5033.JPG" alt="French Door Refrigerator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Side-by-Side Refrigerator" data-phone="08057185714" data-description="Side-by-side refrigerator">
-        <img src="New Arrrival/GHHE2580.JPG" alt="Side-by-Side Refrigerator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Top Freezer Refrigerator" data-phone="08057185714" data-description="Top freezer refrigerator">
-        <img src="New Arrrival/GIFZ8301.JPG" alt="Top Freezer Refrigerator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Bottom Freezer Refrigerator" data-phone="08057185714" data-description="Bottom freezer refrigerator">
-        <img src="New Arrrival/GPJT5259.JPG" alt="Bottom Freezer Refrigerator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Television Section -->
-  <section class="television">
-    <div class="television-grid">
-      <div class="product-card" data-title="Smart LED TV" data-phone="08057185714" data-description="Smart LED TV with streaming capabilities">
-        <img src="New Arrrival/GVQK9505.JPG" alt="Smart LED TV">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="4K Ultra HD TV" data-phone="08057185714" data-description="4K Ultra HD television">
-        <img src="New Arrrival/HIBZ2491.JPG" alt="4K Ultra HD TV">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Curved Screen TV" data-phone="08057185714" data-description="Curved screen TV for immersive experience">
-        <img src="New Arrrival/HIJT7218.JPG" alt="Curved Screen TV">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Android TV" data-phone="08057185714" data-description="Android TV with Google Assistant">
-        <img src="New Arrrival/HTSM8722.JPG" alt="Android TV">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Frameless Smart TV" data-phone="08057185714" data-description="Frameless smart TV design">
-        <img src="New Arrrival/HVEJ2883.JPG" alt="Frameless Smart TV">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="OLED TV" data-phone="08057185714" data-description="OLED TV with perfect blacks">
-        <img src="New Arrrival/IAWF2685.JPG" alt="OLED TV">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="QLED TV" data-phone="08057185714" data-description="QLED TV with quantum dot technology">
-        <img src="New Arrrival/INIH3217.JPG" alt="QLED TV">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Mini LED TV" data-phone="08057185714" data-description="Mini LED TV with local dimming">
-        <img src="New Arrrival/IRQE6180.JPG" alt="Mini LED TV">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sound System Section -->
-  <section class="sound-system">
-    <div class="sound-grid">
-      <div class="product-card" data-title="Bluetooth Speaker" data-phone="08057185714" data-description="Portable Bluetooth speaker">
-        <img src="New Arrrival/IUNO6467.JPG" alt="Bluetooth Speaker">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Home Theater System" data-phone="08057185714" data-description="5.1 channel home theater system">
-        <img src="New Arrrival/IVRM7556.JPG" alt="Home Theater System">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Soundbar" data-phone="08057185714" data-description="Soundbar with subwoofer">
-        <img src="New Arrrival/IZDG6484.JPG" alt="Soundbar">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Mini Home Theater" data-phone="08057185714" data-description="Compact mini home theater">
-        <img src="New Arrrival/JHSB5281.JPG" alt="Mini Home Theater">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Studio Speaker" data-phone="08057185714" data-description="Professional studio monitor speaker">
-        <img src="New Arrrival/JPSB4980.JPG" alt="Studio Speaker">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-      
-      <div class="product-card" data-title="Studio Speaker" data-phone="08057185714" data-description="High-fidelity studio speaker">
-        <img src="New Arrrival/JNIM1812.JPG" alt="Studio Speaker">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-      
-      <div class="product-card" data-title="Studio Speaker" data-phone="08057185714" data-description="Premium studio speaker system">
-        <img src="New Arrrival/JXKQ1933.JPG" alt="Studio Speaker">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-      
-      <div class="product-card" data-title="Studio Speaker" data-phone="08057185714" data-description="Professional audio speaker">
-        <img src="New Arrrival/KMSN3303.JPG" alt="Studio Speaker">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Generator Section -->
-  <section class="generator">
-    <div class="generator-grid">
-      <div class="product-card" data-title="Key Start Generator" data-phone="08057185714" data-description="Key start portable generator">
-        <img src="New Arrrival/KURU8533.JPG" alt="Key Start Generator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Manual Start Generator" data-phone="08057185714" data-description="Manual pull start generator">
-        <img src="New Arrrival/LLCI5788.JPG" alt="Manual Start Generator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Diesel Generator" data-phone="08057185714" data-description="Industrial diesel generator">
-        <img src="New Arrrival/LLJM7471.JPG" alt="Diesel Generator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Petrol Generator" data-phone="08057185714" data-description="Petrol powered generator">
-        <img src="New Arrrival/LMUQ7071.JPG" alt="Petrol Generator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Silent Generator" data-phone="08057185714" data-description="Silent inverter generator">
-        <img src="New Arrrival/LRXZ0432.JPG" alt="Silent Generator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Compact Generator" data-phone="08057185714" data-description="Compact portable generator">
-        <img src="New Arrrival/LZLT2238.JPG" alt="Compact Generator">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Fans Sections -->
-  <section class="fans">
-    <div class="fan-grid">
-      <div class="product-card" data-title="Standing Fan" data-phone="08057185714" data-description="Adjustable standing fan">
-        <img src="New Arrrival/MHTB7444.JPG" alt="Standing Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Ceiling Fan" data-phone="08057185714" data-description="Modern ceiling fan">
-        <img src="New Arrrival/MJUF4668.JPG" alt="Ceiling Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Rechargeable Fan" data-phone="08057185714" data-description="USB rechargeable fan">
-        <img src="New Arrrival/MMIX1224.JPG" alt="Rechargeable Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Wall Fan" data-phone="08057185714" data-description="Wall mounted fan">
-        <img src="New Arrrival/MREL6469.JPG" alt="Wall Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Mini Desk Fan" data-phone="08057185714" data-description="Mini desk fan for personal use">
-        <img src="New Arrrival/MYXT7027.JPG" alt="Mini Desk Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card"  data-phone="08057185714" data-description="Heavy duty industrial fan">
-        <img src="New Arrrival/NJZR7680.JPG" alt="Industrial Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Tower Fan" data-phone="08057185714" data-description="Slim tower fan">
-        <img src="New Arrrival/NXSR9580.JPG" alt="Tower Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-      
-      <div class="product-card" data-title="Tower Fan" data-phone="08057185714" data-description="Modern tower fan">
-        <img src="New Arrrival/TWQU0713.JPG" alt="Tower Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="fans">
-    <div class="fan-grid">
-      <div class="product-card" data-title="Standing Fan" data-phone="08057185714" data-description="Oscillating standing fan">
-        <img src="New Arrrival/OBCS5275.JPG" alt="Standing Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Ceiling Fan" data-phone="08057185714" data-description="Decorative ceiling fan">
-        <img src="New Arrrival/PHRY3277.JPG" alt="Ceiling Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Rechargeable Fan" data-phone="08057185714" data-description="Battery operated rechargeable fan">
-        <img src="New Arrrival/PUIS0976.JPG" alt="Rechargeable Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Wall Fan" data-phone="08057185714" data-description="Adjustable wall fan">
-        <img src="New Arrrival/QCYF1519.JPG" alt="Wall Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Mini Desk Fan" data-phone="08057185714" data-description="Quiet mini desk fan">
-        <img src="New Arrrival/QMQT3651.JPG" alt="Mini Desk Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card"  data-phone="08057185714" data-description="Commercial industrial fan">
-        <img src="New Arrrival/RHMR2800.JPG" alt="Industrial Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Tower Fan" data-phone="08057185714" data-description="Remote control tower fan">
-        <img src="New Arrrival/RJRL6338.JPG" alt="Tower Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-      
-      <div class="product-card" data-title="Tower Fan" data-phone="08057185714" data-description="Smart tower fan">
-        <img src="New Arrrival/TYYC4499.JPG" alt="Tower Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="fans">
-    <div class="fan-grid">
-      <div class="product-card" data-title="Standing Fan" data-phone="08057185714" data-description="Heavy duty standing fan">
-        <img src="New Arrrival/RMHZ3674.JPG" alt="Standing Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Ceiling Fan" data-phone="08057185714" data-description="Remote control ceiling fan">
-        <img src="New Arrrival/RZHI2427.JPG" alt="Ceiling Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Rechargeable Fan" data-phone="08057185714" data-description="Long-lasting rechargeable fan">
-        <img src="New Arrrival/SAZV5154.JPG" alt="Rechargeable Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Wall Fan" data-phone="08057185714" data-description="Metal wall fan">
-        <img src="New Arrrival/SQYU7552.JPG" alt="Wall Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Mini Desk Fan" data-phone="08057185714" data-description="USB powered mini fan">
-        <img src="New Arrrival/SUJM8291.JPG" alt="Mini Desk Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card"  data-phone="08057185714" data-description="Powerful industrial cooling fan">
-        <img src="New Arrrival/TRQD1249.JPG" alt="Industrial Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Tower Fan" data-phone="08057185714" data-description="Digital tower fan">
-        <img src="New Arrrival/TWPK6932.JPG" alt="Tower Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-      
-      <div class="product-card" data-title="Tower Fan" data-phone="08057185714" data-description="Energy efficient tower fan">
-        <img src="New Arrrival/UBXP4249.JPG" alt="Tower Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="fans">
-    <div class="fan-grid">
-      <div class="product-card" data-title="Standing Fan" data-phone="08057185714" data-description="Modern standing fan">
-        <img src="New Arrrival/UIOS5206.JPG" alt="Standing Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Ceiling Fan" data-phone="08057185714" data-description="Energy saving ceiling fan">
-        <img src="New Arrrival/UKWX3129.JPG" alt="Ceiling Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Rechargeable Fan" data-phone="08057185714" data-description="Multi-speed rechargeable fan">
-        <img src="New Arrrival/UXYY9434.JPG" alt="Rechargeable Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Wall Fan" data-phone="08057185714" data-description="Oscillating wall fan">
-        <img src="New Arrrival/UYXU0055.JPG" alt="Wall Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Mini Desk Fan" data-phone="08057185714" data-description="Clip-on mini desk fan">
-        <img src="New Arrrival/VKMR5692.JPG" alt="Mini Desk Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card"  data-phone="08057185714" data-description="Large industrial floor fan">
-        <img src="New Arrrival/VWWU4523.JPG" alt="Industrial Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-title="Tower Fan" data-phone="08057185714" data-description="Programmable tower fan">
-        <img src="New Arrrival/WTNG8962.JPG" alt="Tower Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-      
-      <div class="product-card" data-title="Tower Fan" data-phone="08057185714" data-description="Premium tower fan">
-        <img src="New Arrrival/XWKS8023.JPG" alt="Tower Fan">
-        <div class="product-overlay">
-          <i class="fas fa-expand-alt"></i>
-          <p>Click to view details</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Quick Action Bar -->
+  <div class="quick-action-bar">
+    <a href="tel:08057185714" class="quick-action">
+      <i class="fas fa-phone"></i>
+      <span>Call Now</span>
+    </a>
+    <a href="https://wa.me/2348057185714" target="_blank" class="quick-action whatsapp">
+      <i class="fab fa-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+    <button class="quick-action" id="scrollTopBtn">
+      <i class="fas fa-arrow-up"></i>
+      <span>Top</span>
+    </button>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Premium Electronics Collection</h1>
+        <p class="hero-subtitle">Discover top-quality appliances, gadgets, and accessories for your home and workspace</p>
+        <div class="hero-stats">
+          <div class="stat">
+            <i class="fas fa-box"></i>
+            <span class="stat-number">150+</span>
+            <span class="stat-label">Products</span>
+          </div>
+          <div class="stat">
+            <i class="fas fa-star"></i>
+            <span class="stat-number">4.8</span>
+            <span class="stat-label">Rating</span>
+          </div>
+          <div class="stat">
+            <i class="fas fa-shipping-fast"></i>
+            <span class="stat-number">24h</span>
+            <span class="stat-label">Delivery</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Navigation -->
+    <section class="categories">
+      <h2 class="section-title">Shop by Category</h2>
+      <div class="category-tabs">
+        <button class="category-tab active" data-category="new-arrivals"><i class="fas fa-fire"></i> New Arrivals</button>
+        <button class="category-tab" data-category="refrigerators"><i class="fas fa-snowflake"></i> Refrigerators</button>
+        <button class="category-tab" data-category="televisions"><i class="fas fa-tv"></i> Televisions</button>
+        <button class="category-tab" data-category="sound-systems"><i class="fas fa-volume-up"></i> Sound Systems</button>
+        <button class="category-tab" data-category="generators"><i class="fas fa-bolt"></i> Generators</button>
+        <button class="category-tab" data-category="fans"><i class="fas fa-fan"></i> Fans</button>
+      </div>
+    </section>
+
+    <!-- New Arrivals Section -->
+    <section id="new-arrivals" class="products-section active">
+      <div class="section-header">
+        <h2><i class="fas fa-fire"></i> New Arrivals</h2>
+        <p class="section-subtitle">Latest products added to our collection</p>
+      </div>
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card" data-title="Wireless Headphones" data-description="Premium wireless headphones with active noise cancellation and 30-hour battery life">
+          <div class="product-image">
+            <img src="New Arrrival/ARPD0066.JPG" alt="Wireless Headphones" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Wireless Headphones</h3>
+            <p class="product-description">Premium noise cancellation</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-title="Mechanical Keyboard" data-description="RGB mechanical keyboard with customizable keys and rapid response switches">
+          <div class="product-image">
+            <img src="New Arrrival/BCTG7116.JPG" alt="Mechanical Keyboard" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Mechanical Keyboard</h3>
+            <p class="product-description">RGB customizable keys</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-title="Bluetooth Speaker" data-description="Portable Bluetooth speaker with 12-hour battery life and IPX7 waterproof rating">
+          <div class="product-image">
+            <img src="New Arrrival/BOLV0827.JPG" alt="Bluetooth Speaker" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Bluetooth Speaker</h3>
+            <p class="product-description">Portable 12hr battery</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" data-title="Power Bank" data-description="20000mAh fast charging power bank with dual USB ports and LED display">
+          <div class="product-image">
+            <img src="New Arrrival/BYHG8756.JPG" alt="Power Bank" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Power Bank</h3>
+            <p class="product-description">20000mAh fast charging</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card" data-title="Standing Fan" data-description="3-speed standing fan with remote control, timer function, and oscillation">
+          <div class="product-image">
+            <img src="New Arrrival/CHGG7841.JPG" alt="Standing Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Standing Fan</h3>
+            <p class="product-description">3-speed with remote</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card" data-title="Ceiling Fan" data-description="Modern ceiling fan with LED light, remote control, and reversible motor">
+          <div class="product-image">
+            <img src="New Arrrival/CRFF4981.JPG" alt="Ceiling Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Ceiling Fan</h3>
+            <p class="product-description">Modern with LED light</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card" data-title="Rechargeable Fan" data-description="Portable rechargeable fan with USB charging, 3-speed settings, and 8-hour battery">
+          <div class="product-image">
+            <img src="New Arrrival/CZCW0359.JPG" alt="Rechargeable Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Rechargeable Fan</h3>
+            <p class="product-description">Portable USB charging</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card" data-title="Single Door Refrigerator" data-description="Compact single door refrigerator for small spaces with frost-free technology">
+          <div class="product-image">
+            <img src="New Arrrival/DEQS4925.JPG" alt="Single Door Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Single Door Refrigerator</h3>
+            <p class="product-description">Compact for small spaces</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="product-card" data-title="Double Door Refrigerator" data-description="Large capacity double door refrigerator with smart inverter technology">
+          <div class="product-image">
+            <img src="New Arrrival/DKUI3241.JPG" alt="Double Door Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Double Door Refrigerator</h3>
+            <p class="product-description">Large capacity</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="product-card" data-title="Smart LED TV" data-description="43-inch Smart LED TV with streaming apps, HDR support, and smart voice control">
+          <div class="product-image">
+            <img src="New Arrrival/DSJU4262.JPG" alt="Smart LED TV" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Smart LED TV</h3>
+            <p class="product-description">43-inch with streaming apps</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 11 -->
+        <div class="product-card" data-title="Flat Screen TV" data-description="Ultra-slim flat screen TV with 4K resolution and wide viewing angles">
+          <div class="product-image">
+            <img src="New Arrrival/DSML3012.JPG" alt="Flat Screen TV" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Flat Screen TV</h3>
+            <p class="product-description">Ultra-slim design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 12 -->
+        <div class="product-card" data-title="Curved Smart TV" data-description="Curved screen smart TV for immersive viewing with Dolby Atmos sound">
+          <div class="product-image">
+            <img src="New Arrrival/DWCJ2488.JPG" alt="Curved Smart TV" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Curved Smart TV</h3>
+            <p class="product-description">Immersive curved screen</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 13 -->
+        <div class="product-card" data-title="Power Inverter" data-description="1500W power inverter for home backup with pure sine wave technology">
+          <div class="product-image">
+            <img src="New Arrrival/EASG4707.JPG" alt="Power Inverter" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Power Inverter</h3>
+            <p class="product-description">1500W home backup</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 14 -->
+        <div class="product-card" data-title="Solar Panel" data-description="300W solar panel for renewable energy with high efficiency monocrystalline cells">
+          <div class="product-image">
+            <img src="New Arrrival/EGTX9560.JPG" alt="Solar Panel" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Solar Panel</h3>
+            <p class="product-description">300W renewable energy</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 15 -->
+        <div class="product-card" data-title="Portable Generator" data-description="Silent portable generator for home use with eco-mode and digital display">
+          <div class="product-image">
+            <img src="New Arrrival/EHHF0006.JPG" alt="Portable Generator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Portable Generator</h3>
+            <p class="product-description">Silent for home use</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Refrigerators Section -->
+    <section id="refrigerators" class="products-section">
+      <div class="section-header">
+        <h2><i class="fas fa-snowflake"></i> Refrigerators</h2>
+        <p class="section-subtitle">Energy-efficient cooling solutions for every home</p>
+      </div>
+      <div class="products-grid">
+        <!-- Refrigerator 1 -->
+        <div class="product-card" data-title="Double Door Refrigerator" data-description="Energy efficient double door refrigerator with smart inverter technology">
+          <div class="product-image">
+            <img src="New Arrrival/ETEF0534.JPG" alt="Double Door Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Double Door Refrigerator</h3>
+            <p class="product-description">Energy efficient</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Refrigerator 2 -->
+        <div class="product-card" data-title="Single Door Refrigerator" data-description="Compact single door refrigerator with frost-free technology">
+          <div class="product-image">
+            <img src="New Arrrival/EZYL1673.JPG" alt="Single Door Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Single Door Refrigerator</h3>
+            <p class="product-description">Compact design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Refrigerator 3 -->
+        <div class="product-card" data-title="Mini Refrigerator" data-description="Mini refrigerator for office or dorm with adjustable thermostat">
+          <div class="product-image">
+            <img src="New Arrrival/FMBK2715.JPG" alt="Mini Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Mini Refrigerator</h3>
+            <p class="product-description">For office or dorm</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Refrigerator 4 -->
+        <div class="product-card" data-title="Smart Refrigerator" data-description="Smart refrigerator with touch screen and Wi-Fi connectivity">
+          <div class="product-image">
+            <img src="New Arrrival/FPQM4392.JPG" alt="Smart Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Smart Refrigerator</h3>
+            <p class="product-description">With touch screen</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Refrigerator 5 -->
+        <div class="product-card" data-title="Luxury Refrigerator" data-description="Premium luxury refrigerator with French doors and water dispenser">
+          <div class="product-image">
+            <img src="New Arrrival/FSSI0480.JPG" alt="Luxury Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Luxury Refrigerator</h3>
+            <p class="product-description">Premium luxury design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Refrigerator 6 -->
+        <div class="product-card" data-title="Compact Refrigerator" data-description="Space-saving compact refrigerator with glass door">
+          <div class="product-image">
+            <img src="New Arrrival/FSWO1378.JPG" alt="Compact Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Compact Refrigerator</h3>
+            <p class="product-description">Space-saving design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Refrigerator 7 -->
+        <div class="product-card" data-title="Stainless Refrigerator" data-description="Stainless steel finish refrigerator with fingerprint resistance">
+          <div class="product-image">
+            <img src="New Arrrival/FTYW5037.JPG" alt="Stainless Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Stainless Refrigerator</h3>
+            <p class="product-description">Steel finish</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Refrigerator 8 -->
+        <div class="product-card" data-title="Retro Refrigerator" data-description="Vintage style retro refrigerator with modern cooling technology">
+          <div class="product-image">
+            <img src="New Arrrival/FXEU8169.JPG" alt="Retro Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Retro Refrigerator</h3>
+            <p class="product-description">Vintage style</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Refrigerator 9 -->
+        <div class="product-card" data-title="French Door Refrigerator" data-description="French door refrigerator with water and ice dispenser">
+          <div class="product-image">
+            <img src="New Arrrival/GEKU5033.JPG" alt="French Door Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">French Door Refrigerator</h3>
+            <p class="product-description">With water dispenser</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Refrigerator 10 -->
+        <div class="product-card" data-title="Side-by-Side Refrigerator" data-description="Side-by-side refrigerator with spacious freezer compartment">
+          <div class="product-image">
+            <img src="New Arrrival/GHHE2580.JPG" alt="Side-by-Side Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Side-by-Side Refrigerator</h3>
+            <p class="product-description">Spacious design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Refrigerator 11 -->
+        <div class="product-card" data-title="Top Freezer Refrigerator" data-description="Top freezer refrigerator with adjustable shelves">
+          <div class="product-image">
+            <img src="New Arrrival/GIFZ8301.JPG" alt="Top Freezer Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Top Freezer Refrigerator</h3>
+            <p class="product-description">Adjustable shelves</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Refrigerator 12 -->
+        <div class="product-card" data-title="Bottom Freezer Refrigerator" data-description="Bottom freezer refrigerator with easy access fresh food compartment">
+          <div class="product-image">
+            <img src="New Arrrival/GPJT5259.JPG" alt="Bottom Freezer Refrigerator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Bottom Freezer Refrigerator</h3>
+            <p class="product-description">Easy access design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Televisions Section -->
+    <section id="televisions" class="products-section">
+      <div class="section-header">
+        <h2><i class="fas fa-tv"></i> Televisions</h2>
+        <p class="section-subtitle">Immersive viewing experience with smart features</p>
+      </div>
+      <div class="products-grid">
+        <!-- Television 1 -->
+        <div class="product-card" data-title="Smart LED TV" data-description="Smart LED TV with streaming capabilities and voice control">
+          <div class="product-image">
+            <img src="New Arrrival/GVQK9505.JPG" alt="Smart LED TV" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Smart LED TV</h3>
+            <p class="product-description">With streaming apps</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Television 2 -->
+        <div class="product-card" data-title="4K Ultra HD TV" data-description="4K Ultra HD television with HDR10+ and local dimming">
+          <div class="product-image">
+            <img src="New Arrrival/HIBZ2491.JPG" alt="4K Ultra HD TV" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">4K Ultra HD TV</h3>
+            <p class="product-description">Ultra HD resolution</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Television 3 -->
+        <div class="product-card" data-title="Curved Screen TV" data-description="Curved screen TV for immersive experience with wide color gamut">
+          <div class="product-image">
+            <img src="New Arrrival/HIJT7218.JPG" alt="Curved Screen TV" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Curved Screen TV</h3>
+            <p class="product-description">Immersive experience</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Television 4 -->
+        <div class="product-card" data-title="Android TV" data-description="Android TV with Google Assistant and Chromecast built-in">
+          <div class="product-image">
+            <img src="New Arrrival/HTSM8722.JPG" alt="Android TV" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Android TV</h3>
+            <p class="product-description">With Google Assistant</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Television 5 -->
+        <div class="product-card" data-title="Frameless Smart TV" data-description="Frameless smart TV design with bezel-less display">
+          <div class="product-image">
+            <img src="New Arrrival/HVEJ2883.JPG" alt="Frameless Smart TV" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Frameless Smart TV</h3>
+            <p class="product-description">Bezel-less design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Television 6 -->
+        <div class="product-card" data-title="OLED TV" data-description="OLED TV with perfect blacks and infinite contrast ratio">
+          <div class="product-image">
+            <img src="New Arrrival/IAWF2685.JPG" alt="OLED TV" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">OLED TV</h3>
+            <p class="product-description">Perfect blacks</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Television 7 -->
+        <div class="product-card" data-title="QLED TV" data-description="QLED TV with quantum dot technology and high brightness">
+          <div class="product-image">
+            <img src="New Arrrival/INIH3217.JPG" alt="QLED TV" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">QLED TV</h3>
+            <p class="product-description">Quantum dot technology</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Television 8 -->
+        <div class="product-card" data-title="Mini LED TV" data-description="Mini LED TV with local dimming zones and high dynamic range">
+          <div class="product-image">
+            <img src="New Arrrival/IRQE6180.JPG" alt="Mini LED TV" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Mini LED TV</h3>
+            <p class="product-description">Local dimming</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sound Systems Section -->
+    <section id="sound-systems" class="products-section">
+      <div class="section-header">
+        <h2><i class="fas fa-volume-up"></i> Sound Systems</h2>
+        <p class="section-subtitle">Crystal clear audio for every entertainment need</p>
+      </div>
+      <div class="products-grid">
+        <!-- Sound System 1 -->
+        <div class="product-card" data-title="Bluetooth Speaker" data-description="Portable Bluetooth speaker with 360° sound and party lights">
+          <div class="product-image">
+            <img src="New Arrrival/IUNO6467.JPG" alt="Bluetooth Speaker" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Bluetooth Speaker</h3>
+            <p class="product-description">Portable 360° sound</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sound System 2 -->
+        <div class="product-card" data-title="Home Theater System" data-description="5.1 channel home theater system with wireless subwoofer">
+          <div class="product-image">
+            <img src="New Arrrival/IVRM7556.JPG" alt="Home Theater System" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Home Theater System</h3>
+            <p class="product-description">5.1 channel</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sound System 3 -->
+        <div class="product-card" data-title="Soundbar" data-description="Soundbar with subwoofer and Dolby Atmos support">
+          <div class="product-image">
+            <img src="New Arrrival/IZDG6484.JPG" alt="Soundbar" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Soundbar</h3>
+            <p class="product-description">With subwoofer</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sound System 4 -->
+        <div class="product-card" data-title="Mini Home Theater" data-description="Compact mini home theater with Bluetooth connectivity">
+          <div class="product-image">
+            <img src="New Arrrival/JHSB5281.JPG" alt="Mini Home Theater" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Mini Home Theater</h3>
+            <p class="product-description">Compact design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sound System 5 -->
+        <div class="product-card" data-title="Studio Speaker" data-description="Professional studio monitor speaker with flat frequency response">
+          <div class="product-image">
+            <img src="New Arrrival/JPSB4980.JPG" alt="Studio Speaker" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Studio Speaker</h3>
+            <p class="product-description">Professional monitor</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sound System 6 -->
+        <div class="product-card" data-title="Studio Speaker" data-description="High-fidelity studio speaker with balanced audio output">
+          <div class="product-image">
+            <img src="New Arrrival/JNIM1812.JPG" alt="Studio Speaker" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Studio Speaker</h3>
+            <p class="product-description">High-fidelity audio</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sound System 7 -->
+        <div class="product-card" data-title="Studio Speaker" data-description="Premium studio speaker system with multiple connectivity options">
+          <div class="product-image">
+            <img src="New Arrrival/JXKQ1933.JPG" alt="Studio Speaker" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Studio Speaker</h3>
+            <p class="product-description">Premium system</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sound System 8 -->
+        <div class="product-card" data-title="Studio Speaker" data-description="Professional audio speaker with XLR and TRS inputs">
+          <div class="product-image">
+            <img src="New Arrrival/KMSN3303.JPG" alt="Studio Speaker" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Studio Speaker</h3>
+            <p class="product-description">Professional audio</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Generators Section -->
+    <section id="generators" class="products-section">
+      <div class="section-header">
+        <h2><i class="fas fa-bolt"></i> Generators</h2>
+        <p class="section-subtitle">Reliable power solutions for home and business</p>
+      </div>
+      <div class="products-grid">
+        <!-- Generator 1 -->
+        <div class="product-card" data-title="Key Start Generator" data-description="Key start portable generator with electric start system">
+          <div class="product-image">
+            <img src="New Arrrival/KURU8533.JPG" alt="Key Start Generator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Key Start Generator</h3>
+            <p class="product-description">Portable electric start</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Generator 2 -->
+        <div class="product-card" data-title="Manual Start Generator" data-description="Manual pull start generator with low oil shutdown">
+          <div class="product-image">
+            <img src="New Arrrival/LLCI5788.JPG" alt="Manual Start Generator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Manual Start Generator</h3>
+            <p class="product-description">Pull start system</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Generator 3 -->
+        <div class="product-card" data-title="Diesel Generator" data-description="Industrial diesel generator with automatic voltage regulator">
+          <div class="product-image">
+            <img src="New Arrrival/LLJM7471.JPG" alt="Diesel Generator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Diesel Generator</h3>
+            <p class="product-description">Industrial power</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Generator 4 -->
+        <div class="product-card" data-title="Petrol Generator" data-description="Petrol powered generator with fuel gauge and overload protection">
+          <div class="product-image">
+            <img src="New Arrrival/LMUQ7071.JPG" alt="Petrol Generator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Petrol Generator</h3>
+            <p class="product-description">Fuel efficient</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Generator 5 -->
+        <div class="product-card" data-title="Silent Generator" data-description="Silent inverter generator with low noise operation">
+          <div class="product-image">
+            <img src="New Arrrival/LRXZ0432.JPG" alt="Silent Generator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Silent Generator</h3>
+            <p class="product-description">Low noise operation</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Generator 6 -->
+        <div class="product-card" data-title="Compact Generator" data-description="Compact portable generator with wheels and handle">
+          <div class="product-image">
+            <img src="New Arrrival/LZLT2238.JPG" alt="Compact Generator" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Compact Generator</h3>
+            <p class="product-description">Portable design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fans Section -->
+    <section id="fans" class="products-section">
+      <div class="section-header">
+        <h2><i class="fas fa-fan"></i> Fans</h2>
+        <p class="section-subtitle">Cooling solutions for all spaces</p>
+      </div>
+      <div class="products-grid">
+        <!-- Fan 1 -->
+        <div class="product-card" data-title="Standing Fan" data-description="Adjustable standing fan with oscillation and speed control">
+          <div class="product-image">
+            <img src="New Arrrival/MHTB7444.JPG" alt="Standing Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Standing Fan</h3>
+            <p class="product-description">Adjustable height</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 2 -->
+        <div class="product-card" data-title="Ceiling Fan" data-description="Modern ceiling fan with remote control and LED light">
+          <div class="product-image">
+            <img src="New Arrrival/MJUF4668.JPG" alt="Ceiling Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Ceiling Fan</h3>
+            <p class="product-description">Modern design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 3 -->
+        <div class="product-card" data-title="Rechargeable Fan" data-description="USB rechargeable fan with built-in battery and LED display">
+          <div class="product-image">
+            <img src="New Arrrival/MMIX1224.JPG" alt="Rechargeable Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Rechargeable Fan</h3>
+            <p class="product-description">USB rechargeable</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 4 -->
+        <div class="product-card" data-title="Wall Fan" data-description="Wall mounted fan with adjustable tilt and speed settings">
+          <div class="product-image">
+            <img src="New Arrrival/MREL6469.JPG" alt="Wall Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Wall Fan</h3>
+            <p class="product-description">Wall mounted</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 5 -->
+        <div class="product-card" data-title="Mini Desk Fan" data-description="Mini desk fan for personal use with quiet operation">
+          <div class="product-image">
+            <img src="New Arrrival/MYXT7027.JPG" alt="Mini Desk Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Mini Desk Fan</h3>
+            <p class="product-description">Personal use</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 6 -->
+        <div class="product-card" data-title="Industrial Fan" data-description="Heavy duty industrial fan with powerful airflow">
+          <div class="product-image">
+            <img src="New Arrrival/NJZR7680.JPG" alt="Industrial Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Industrial Fan</h3>
+            <p class="product-description">Heavy duty</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 7 -->
+        <div class="product-card" data-title="Tower Fan" data-description="Slim tower fan with oscillation and timer function">
+          <div class="product-image">
+            <img src="New Arrrival/NXSR9580.JPG" alt="Tower Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Tower Fan</h3>
+            <p class="product-description">Slim design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 8 -->
+        <div class="product-card" data-title="Tower Fan" data-description="Modern tower fan with remote control and air purification">
+          <div class="product-image">
+            <img src="New Arrrival/TWQU0713.JPG" alt="Tower Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Tower Fan</h3>
+            <p class="product-description">Modern design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 9 -->
+        <div class="product-card" data-title="Standing Fan" data-description="Oscillating standing fan with multiple speed settings">
+          <div class="product-image">
+            <img src="New Arrrival/OBCS5275.JPG" alt="Standing Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Standing Fan</h3>
+            <p class="product-description">Oscillating</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 10 -->
+        <div class="product-card" data-title="Ceiling Fan" data-description="Decorative ceiling fan with wooden blades">
+          <div class="product-image">
+            <img src="New Arrrival/PHRY3277.JPG" alt="Ceiling Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Ceiling Fan</h3>
+            <p class="product-description">Decorative design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 11 -->
+        <div class="product-card" data-title="Rechargeable Fan" data-description="Battery operated rechargeable fan with long runtime">
+          <div class="product-image">
+            <img src="New Arrrival/PUIS0976.JPG" alt="Rechargeable Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Rechargeable Fan</h3>
+            <p class="product-description">Battery operated</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 12 -->
+        <div class="product-card" data-title="Wall Fan" data-description="Adjustable wall fan with oscillation and timer">
+          <div class="product-image">
+            <img src="New Arrrival/QCYF1519.JPG" alt="Wall Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Wall Fan</h3>
+            <p class="product-description">Adjustable</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 13 -->
+        <div class="product-card" data-title="Mini Desk Fan" data-description="Quiet mini desk fan with USB power">
+          <div class="product-image">
+            <img src="New Arrrival/QMQT3651.JPG" alt="Mini Desk Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Mini Desk Fan</h3>
+            <p class="product-description">Quiet operation</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 14 -->
+        <div class="product-card" data-title="Industrial Fan" data-description="Commercial industrial fan with high airflow">
+          <div class="product-image">
+            <img src="New Arrrival/RHMR2800.JPG" alt="Industrial Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Industrial Fan</h3>
+            <p class="product-description">Commercial grade</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 15 -->
+        <div class="product-card" data-title="Tower Fan" data-description="Remote control tower fan with air ionization">
+          <div class="product-image">
+            <img src="New Arrrival/RJRL6338.JPG" alt="Tower Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Tower Fan</h3>
+            <p class="product-description">Remote control</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 16 -->
+        <div class="product-card" data-title="Tower Fan" data-description="Smart tower fan with Wi-Fi connectivity">
+          <div class="product-image">
+            <img src="New Arrrival/TYYC4499.JPG" alt="Tower Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Tower Fan</h3>
+            <p class="product-description">Smart Wi-Fi</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 17 -->
+        <div class="product-card" data-title="Standing Fan" data-description="Heavy duty standing fan with metal construction">
+          <div class="product-image">
+            <img src="New Arrrival/RMHZ3674.JPG" alt="Standing Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Standing Fan</h3>
+            <p class="product-description">Heavy duty</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 18 -->
+        <div class="product-card" data-title="Ceiling Fan" data-description="Remote control ceiling fan with LED lights">
+          <div class="product-image">
+            <img src="New Arrrival/RZHI2427.JPG" alt="Ceiling Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Ceiling Fan</h3>
+            <p class="product-description">Remote control</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 19 -->
+        <div class="product-card" data-title="Rechargeable Fan" data-description="Long-lasting rechargeable fan with power bank function">
+          <div class="product-image">
+            <img src="New Arrrival/SAZV5154.JPG" alt="Rechargeable Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Rechargeable Fan</h3>
+            <p class="product-description">Long-lasting</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 20 -->
+        <div class="product-card" data-title="Wall Fan" data-description="Metal wall fan with oscillation and speed control">
+          <div class="product-image">
+            <img src="New Arrrival/SQYU7552.JPG" alt="Wall Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Wall Fan</h3>
+            <p class="product-description">Metal construction</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 21 -->
+        <div class="product-card" data-title="Mini Desk Fan" data-description="USB powered mini fan with adjustable angle">
+          <div class="product-image">
+            <img src="New Arrrival/SUJM8291.JPG" alt="Mini Desk Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Mini Desk Fan</h3>
+            <p class="product-description">USB powered</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 22 -->
+        <div class="product-card" data-title="Industrial Fan" data-description="Powerful industrial cooling fan with safety grill">
+          <div class="product-image">
+            <img src="New Arrrival/TRQD1249.JPG" alt="Industrial Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Industrial Fan</h3>
+            <p class="product-description">Powerful cooling</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 23 -->
+        <div class="product-card" data-title="Tower Fan" data-description="Digital tower fan with LED display and timer">
+          <div class="product-image">
+            <img src="New Arrrival/TWPK6932.JPG" alt="Tower Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Tower Fan</h3>
+            <p class="product-description">Digital display</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 24 -->
+        <div class="product-card" data-title="Tower Fan" data-description="Energy efficient tower fan with sleep mode">
+          <div class="product-image">
+            <img src="New Arrrival/UBXP4249.JPG" alt="Tower Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Tower Fan</h3>
+            <p class="product-description">Energy efficient</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 25 -->
+        <div class="product-card" data-title="Standing Fan" data-description="Modern standing fan with touch controls">
+          <div class="product-image">
+            <img src="New Arrrival/UIOS5206.JPG" alt="Standing Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Standing Fan</h3>
+            <p class="product-description">Modern design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 26 -->
+        <div class="product-card" data-title="Ceiling Fan" data-description="Energy saving ceiling fan with DC motor">
+          <div class="product-image">
+            <img src="New Arrrival/UKWX3129.JPG" alt="Ceiling Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Ceiling Fan</h3>
+            <p class="product-description">Energy saving</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 27 -->
+        <div class="product-card" data-title="Rechargeable Fan" data-description="Multi-speed rechargeable fan with timer function">
+          <div class="product-image">
+            <img src="New Arrrival/UXYY9434.JPG" alt="Rechargeable Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Rechargeable Fan</h3>
+            <p class="product-description">Multi-speed</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 28 -->
+        <div class="product-card" data-title="Wall Fan" data-description="Oscillating wall fan with remote control">
+          <div class="product-image">
+            <img src="New Arrrival/UYXU0055.JPG" alt="Wall Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Wall Fan</h3>
+            <p class="product-description">Oscillating</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 29 -->
+        <div class="product-card" data-title="Mini Desk Fan" data-description="Clip-on mini desk fan with flexible neck">
+          <div class="product-image">
+            <img src="New Arrrival/VKMR5692.JPG" alt="Mini Desk Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Mini Desk Fan</h3>
+            <p class="product-description">Clip-on design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 30 -->
+        <div class="product-card" data-title="Industrial Fan" data-description="Large industrial floor fan with safety cage">
+          <div class="product-image">
+            <img src="New Arrrival/VWWU4523.JPG" alt="Industrial Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Industrial Fan</h3>
+            <p class="product-description">Large floor fan</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 31 -->
+        <div class="product-card" data-title="Tower Fan" data-description="Programmable tower fan with multiple modes">
+          <div class="product-image">
+            <img src="New Arrrival/WTNG8962.JPG" alt="Tower Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Tower Fan</h3>
+            <p class="product-description">Programmable</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fan 32 -->
+        <div class="product-card" data-title="Tower Fan" data-description="Premium tower fan with air purification">
+          <div class="product-image">
+            <img src="New Arrrival/XWKS8023.JPG" alt="Tower Fan" loading="lazy">
+            <div class="product-overlay">
+              <div class="overlay-content">
+                <i class="fas fa-expand-alt"></i>
+                <p>Click to view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Tower Fan</h3>
+            <p class="product-description">Premium design</p>
+            <div class="product-action">
+              <button class="view-details-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2>Ready to Place Your Order?</h2>
+        <p>Contact us today for the best deals on quality electronics</p>
+        <div class="cta-buttons">
+          <a href="tel:08057185714" class="cta-btn call-btn">
+            <i class="fas fa-phone"></i> Call Now: 08057185714
+          </a>
+          <a href="https://wa.me/2348057185714" target="_blank" class="cta-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2025 Olamileken Electronics. All Rights Reserved.</p>
-    <p class="footer-contact">Need help? Call: <a href="tel:08057185714">08057185714</a></p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 class="footer-logo"><span class="brand">WIZZYMONEY</span> <span class="sub-brand">Olamileken Electronics</span></h3>
+        <p>Your trusted partner for premium electronics and appliances since 2020.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="https://wa.me/2348057185714" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="accessories.html"><i class="fas fa-chevron-right"></i> Accessories</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contact Info</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-phone"></i> <a href="tel:08057185714">08057185714</a></li>
+          <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/2348057185714" target="_blank">+234 805 718 5714</a></li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:info@olamilekenelectronics.com">info@olamilekenelectronics.com</a></li>
+          <li><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 7:00 PM</li>
+          <li><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Newsletter</h4>
+        <p>Subscribe for updates on new arrivals and special offers</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; <span id="currentYear"></span> WIZZYMONEY Olamileken Electronics. All Rights Reserved.</p>
+      <p class="developer-note">Designed with <i class="fas fa-heart"></i> for premium electronics shopping</p>
+    </div>
   </footer>
 
- <script>
-    // Preloader functionality
-    window.addEventListener('load', function() {
-      // Wait for 2 seconds to show the preloader animation
-      setTimeout(function() {
-        const preloader = document.getElementById('preloader');
-        if (preloader) {
-          preloader.classList.add('hidden');
-          document.body.classList.add('loaded');
-          
-          // Remove preloader from DOM after animation completes
-          setTimeout(function() {
-            preloader.style.display = 'none';
-          }, 500); // Match the transition duration
-        }
-      }, 2000); // Show preloader for 2 seconds
-    });
-
-    // Navbar toggle for mobile
-    const menuToggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
-
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-      menuToggle.classList.toggle("active");
-    });
-
-       // Modal functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get modal elements
-      const modal = document.getElementById('imageModal');
-      const modalImage = document.getElementById('modalImage');
-      const closeBtn = document.querySelector('.close-btn');
-      const closeModalBtn = document.querySelector('.close-modal-btn');
-      const phoneNumberLink = document.querySelector('.phone-number');
-      const whatsappLink = document.getElementById('whatsappLink');
-
-      // Get all product cards
-      const productCards = document.querySelectorAll('.product-card');
-
-      // Function to open modal with product info
-      function openModal(event) {
-        const productCard = event.currentTarget;
-        const img = productCard.querySelector('img');
-        const title = productCard.getAttribute('data-title') || img.alt;
-        const phone = productCard.getAttribute('data-phone') || '08057185714';
-        const description = productCard.getAttribute('data-description') || 'Product from WIZZYMONEY Olamileken Electronics';
-        const imageUrl = img.src;
-        
-        // Set modal content
-        modalImage.src = imageUrl;
-        modalImage.alt = img.alt;        
-        // Update phone links
-        const cleanPhone = phone.replace(/\s+/g, '');
-        phoneNumberLink.textContent = phone;
-        phoneNumberLink.href = `tel:${cleanPhone}`;
-        
-        // Create WhatsApp message with product details
-        const whatsappMessage = encodeURIComponent(
-          `*🛍️ WIZZYMONEY Olamileken Electronics*\n\n` +
-          `Hello! I'm interested in this product:\n\n` +
-          `*📦 Product:* ${title}\n` +
-          `*📝 Description:* ${description}\n\n` +
-          `Please provide more information and pricing for this item.`
-        );
-        
-        // For WhatsApp, we need to use the international format
-        const whatsappPhone = '2348057185714'; // 08057185714 without leading 0
-        whatsappLink.href = `https://wa.me/${whatsappPhone}?text=${whatsappMessage}`;
-        
-        // Create download link for the image
-        const downloadBtn = document.createElement('a');
-        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download Image';
-        downloadBtn.className = 'download-image-btn';
-        downloadBtn.href = imageUrl;
-        downloadBtn.download = title.replace(/\s+/g, '_') + '.jpg';
-        downloadBtn.style.display = 'block';
-        downloadBtn.style.marginTop = '10px';
-        downloadBtn.style.textAlign = 'center';
-        downloadBtn.style.color = '#0077b6';
-        downloadBtn.style.textDecoration = 'none';
-        downloadBtn.style.fontWeight = '500';
-        
-        // Add download button to modal info
-        const modalInfo = document.querySelector('.modal-info');
-        const existingDownloadBtn = document.querySelector('.download-image-btn');
-        if (existingDownloadBtn) {
-          existingDownloadBtn.remove();
-        }
-        modalInfo.insertBefore(downloadBtn, modalInfo.querySelector('.close-modal-btn'));
-        
-        // Add instructions for sharing image
-        const instructions = document.createElement('p');
-        instructions.innerHTML = '<small>💡 <strong>To share image:</strong> Download image first, then share via WhatsApp</small>';
-        instructions.style.marginTop = '10px';
-        instructions.style.color = '#666';
-        instructions.style.fontSize = '0.8rem';
-        
-        const existingInstructions = document.querySelector('.image-instructions');
-        if (existingInstructions) {
-          existingInstructions.remove();
-        }
-        instructions.className = 'image-instructions';
-        modalInfo.insertBefore(instructions, modalInfo.querySelector('.close-modal-btn'));
-        
-        // Show modal
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-      }
-
-      // Function to close modal
-      function closeModal() {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
-      }
-
-      // Add click event to all product cards
-      productCards.forEach(card => {
-        card.addEventListener('click', openModal);
-        
-        // Make cards keyboard accessible
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', `View details for ${card.querySelector('img').alt}`);
-        
-        // Add keyboard support
-        card.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openModal(e);
-          }
-        });
-      });
-
-      // Close modal events
-      closeBtn.addEventListener('click', closeModal);
-      closeModalBtn.addEventListener('click', closeModal);
-      
-      // Close modal when clicking outside content
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          closeModal();
-        }
-      });
-      
-      // Close modal with Escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-          closeModal();
-        }
-      });
-
-      // Close mobile menu when clicking a link
-      document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', () => {
-          if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            menuToggle.classList.remove('active');
-          }
-        });
-      });
-    });
-  </script>
+  <script src="accessories.js"></script>
 </body>
 </html>
