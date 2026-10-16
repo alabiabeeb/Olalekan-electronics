@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Olamileken Electronics</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    body { background: var(--paper); }
+    .admin-top { background: var(--ink); color: #fff; }
+    .admin-top .container { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+    .admin-tabs { display: flex; gap: 6px; overflow-x: auto; padding: 16px 0; }
+    .admin-tabs button { flex-shrink: 0; border: 1px solid var(--line); background: var(--card); padding: 8px 16px; border-radius: 999px; cursor: pointer; font-weight: 500; }
+    .admin-tabs button.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .admin-tabs .pill { background: var(--amber); color: var(--ink); border-radius: 999px; padding: 0 7px; font-size: .75rem; margin-left: 6px; font-weight: 700; }
+    .stat-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+    .stat-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+    .stat-card span { font-size: .82rem; color: var(--muted); }
+    .stat-card strong { display: block; font-family: var(--font-head); font-size: 1.8rem; margin-top: 4px; }
+    .panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-bottom: 72px; }
+    .panel-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; padding: 16px; border-bottom: 1px solid var(--line); }
+    .panel-head input, .panel-head select { padding: 9px 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+    th { font-size: .76rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); background: #fafbfc; }
+    td img { width: 48px; height: 48px; object-fit: cover; border-radius: 8px; }
+    .row-actions { display: flex; gap: 6px; }
+    .icon-btn { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line); background: #fff; cursor: pointer; }
+    .icon-btn:hover { border-color: var(--text); }
+    .icon-btn.danger:hover { border-color: var(--danger); color: var(--danger); }
+    .status { padding: 3px 10px; border-radius: 999px; font-size: .76rem; font-weight: 600; text-transform: capitalize; }
+    .status-pending { background: #fff5e2; color: #8a5a00; }
+    .status-confirmed { background: #e6f3ff; color: #1d5fa3; }
+    .status-delivered { background: #e7f6ee; color: #166c3b; }
+    .status-cancelled { background: #f1f2f4; color: var(--muted); }
+    .order-card, .message-card { padding: 16px; border-bottom: 1px solid var(--line); }
+    .order-card header, .message-card header { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .order-card ul { margin: 8px 0; padding-left: 18px; font-size: .9rem; }
+    .meta { font-size: .85rem; color: var(--muted); }
+    .message-card.unread { background: #fffbf2; border-left: 3px solid var(--amber); }
+    .login-box { max-width: 380px; margin: 12vh auto; }
+    .img-preview { width: 96px; height: 96px; object-fit: cover; border-radius: 10px; background: #eef0f4; }
+    .checks { display: flex; flex-wrap: wrap; gap: 18px; }
+    .muted-empty { padding: 40px 16px; text-align: center; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <!-- Login -->
+  <div id="loginView" hidden>
+    <form class="form-card login-box" id="loginForm">
+      <div class="brand" style="color:var(--text);margin-bottom:20px">
+        <span class="brand-mark"><i class="fas fa-bolt"></i></span><span>Olamileken<small>Store admin</small></span>
+      </div>
+      <div class="field">
+        <label for="password">Admin password</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+      </div>
+      <button class="btn btn-amber btn-block" style="margin-top:16px" type="submit">Log in</button>
+      <div class="form-status" id="loginStatus" role="alert"></div>
+      <p class="meta" style="margin-top:16px"><a href="/">← Back to the store</a></p>
+    </form>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="adminView" hidden>
+    <div class="admin-top">
+      <div class="container">
+        <a href="/" class="brand" target="_blank"><span class="brand-mark"><i class="fas fa-bolt"></i></span><span>Olamileken<small>Store admin</small></span></a>
+        <button class="btn btn-ghost btn-sm" id="logoutBtn"><i class="fas fa-right-from-bracket"></i> Log out</button>
+      </div>
+    </div>
+    <div class="container">
+      <nav class="admin-tabs" id="tabs">
+        <button data-tab="overview" class="active">Overview</button>
+        <button data-tab="products">Products</button>
+        <button data-tab="orders">Orders<span class="pill" id="pendingPill" hidden></span></button>
+        <button data-tab="messages">Messages<span class="pill" id="unreadPill" hidden></span></button>
+        <button data-tab="subscribers">Subscribers</button>
+      </nav>
+
+      <section data-panel="overview">
+        <div class="stat-cards" id="statCards"></div>
+        <p class="meta" style="margin:20px 0 72px">Tip: products showing “Ask for price” have no price set. Add prices in the Products tab so customers see totals at checkout.</p>
+      </section>
+
+      <section data-panel="products" hidden>
+        <div class="panel">
+          <div class="panel-head">
+            <input type="search" id="productSearch" placeholder="Filter products…" aria-label="Filter products">
+            <button class="btn btn-amber btn-sm" id="newProductBtn"><i class="fas fa-plus"></i> Add product</button>
+          </div>
+          <div class="table-wrap"><table>
+            <thead><tr><th></th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th></th></tr></thead>
+            <tbody id="productRows"></tbody>
+          </table></div>
+        </div>
+      </section>
+
+      <section data-panel="orders" hidden>
+        <div class="panel">
+          <div class="panel-head">
+            <strong>Orders</strong>
+            <select id="orderFilter" aria-label="Filter orders by status">
+              <option value="">All statuses</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="delivered">Delivered</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          <div id="orderList"></div>
+        </div>
+      </section>
+
+      <section data-panel="messages" hidden>
+        <div class="panel"><div class="panel-head"><strong>Messages from the contact form</strong></div><div id="messageList"></div></div>
+      </section>
+
+      <section data-panel="subscribers" hidden>
+        <div class="panel">
+          <div class="panel-head"><strong>Newsletter subscribers</strong><button class="btn btn-outline btn-sm" id="copyEmails"><i class="fas fa-copy"></i> Copy all emails</button></div>
+          <div class="table-wrap"><table><thead><tr><th>Email</th><th>Joined</th></tr></thead><tbody id="subscriberRows"></tbody></table></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Product editor -->
+  <div class="modal" id="productEditor" role="dialog" aria-modal="true" aria-labelledby="editorTitle">
+    <div class="modal-box" style="max-width:640px">
+      <button class="modal-close" aria-label="Close" data-close><i class="fas fa-xmark"></i></button>
+      <form id="productForm" style="padding:28px">
+        <h2 id="editorTitle" style="font-size:1.4rem">Add product</h2>
+        <div class="form-grid">
+          <div class="field full"><label for="pName">Name</label><input id="pName" name="name" required maxlength="120"></div>
+          <div class="field"><label for="pCategory">Category</label><select id="pCategory" name="category" required></select></div>
+          <div class="field"><label for="pPrice">Price (₦)</label><input id="pPrice" name="price" type="number" min="0" step="1" placeholder="Leave blank = Ask for price"></div>
+          <div class="field full"><label for="pSummary">Short summary</label><input id="pSummary" name="summary" maxlength="160" placeholder="Shown on the product card"></div>
+          <div class="field full"><label for="pDescription">Description</label><textarea id="pDescription" name="description" maxlength="2000" style="min-height:90px"></textarea></div>
+          <div class="field full">
+            <label for="pImage">Image</label>
+            <div style="display:flex;gap:14px;align-items:center">
+              <img class="img-preview" id="imgPreview" alt="">
+              <div><input id="pImage" name="image" type="file" accept="image/jpeg,image/png,image/webp,image/gif"><div class="hint">JPG, PNG, WEBP or GIF up to 5 MB.</div></div>
+            </div>
+          </div>
+          <div class="field full checks">
+            <label class="check"><input type="checkbox" name="inStock" value="1" checked> In stock</label>
+            <label class="check"><input type="checkbox" name="isNew" value="1"> Mark as new</label>
+            <label class="check"><input type="checkbox" name="featured" value="1"> Feature on home page</label>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:20px">
+          <button class="btn btn-amber" type="submit"><i class="fas fa-floppy-disk"></i> Save</button>
+          <button class="btn btn-outline" type="button" data-close>Cancel</button>
+        </div>
+        <div class="form-status" id="productStatus" role="alert"></div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="/js/admin.js"></script>
+</body>
+</html>

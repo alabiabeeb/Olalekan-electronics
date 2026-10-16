@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Olamileken Electronics</title>
+  <meta name="description" content="Call, WhatsApp, email or visit Olamileken Electronics at Drug Junction, Ogunpa, Ibadan.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23f5a524'/><text x='50' y='70' font-size='60' text-anchor='middle'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Contact</span>
+        <h1>Talk to us</h1>
+        <p>Product questions, bulk orders, or after-sales support — we usually reply within two hours.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <div class="info-list">
+          <div class="info-item"><i class="fas fa-location-dot"></i><div><h3>Visit the store</h3><p>Drug Junction, Ogunpa, Ibadan, Oyo State</p></div></div>
+          <div class="info-item"><i class="fas fa-phone"></i><div><h3>Call</h3><p><a href="tel:+2348057185714">08057185714</a> · <a href="tel:+2348163813799">08163813799</a></p></div></div>
+          <div class="info-item"><i class="fab fa-whatsapp"></i><div><h3>WhatsApp</h3><p><a href="https://wa.me/2348057185714" target="_blank" rel="noopener">Chat with us — 24/7</a></p></div></div>
+          <div class="info-item"><i class="fas fa-envelope"></i><div><h3>Email</h3><p><a href="mailto:abiodunolamilekan2015@gmail.com">abiodunolamilekan2015@gmail.com</a></p></div></div>
+          <div class="info-item"><i class="fas fa-clock"></i><div><h3>Opening hours</h3><p>Mon–Fri: 8:00 AM – 7:00 PM<br>Saturday: 9:00 AM – 6:00 PM<br>Sunday: 10:00 AM – 5:00 PM</p></div></div>
+        </div>
+
+        <form class="form-card" id="contactForm" novalidate>
+          <h2 style="font-size:1.4rem">Send us a message</h2>
+          <div class="form-grid">
+            <div class="field full">
+              <label for="cName">Full name</label>
+              <input id="cName" name="name" required maxlength="100" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="cPhone">Phone</label>
+              <input id="cPhone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="cEmail">Email</label>
+              <input id="cEmail" name="email" type="email" autocomplete="email">
+            </div>
+            <div class="field full">
+              <label for="cSubject">What is this about?</label>
+              <select id="cSubject" name="subject">
+                <option>Product inquiry</option>
+                <option>Order status</option>
+                <option>Technical support</option>
+                <option>Wholesale / bulk order</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="cMessage">Message</label>
+              <textarea id="cMessage" name="message" required maxlength="3000"></textarea>
+              <div class="hint">Give us a phone number or email so we can reply.</div>
+            </div>
+          </div>
+          <button class="btn btn-amber" type="submit" style="margin-top:16px"><i class="fas fa-paper-plane"></i> Send message</button>
+          <div class="form-status" id="contactStatus" role="alert"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section-alt" style="padding-top:0;background:transparent">
+      <div class="container">
+        <iframe class="map-frame" title="Map to Drug Junction, Ogunpa, Ibadan" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Drug%20Junction%20Ogunpa%20Ibadan&z=16&output=embed"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { api } from '/js/common.js';
+
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('contactStatus');
+    const show = (kind, msg) => { status.className = `form-status show ${kind}`; status.textContent = msg; };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form));
+      if (!data.name.trim() || !data.message.trim()) return show('err', 'Please fill in your name and message.');
+      if (!data.phone.trim() && !data.email.trim()) return show('err', 'Please give a phone number or email so we can reply.');
+      const btn = form.querySelector('button');
+      btn.disabled = true;
+      try {
+        await api('/messages', { method: 'POST', body: data });
+        form.reset();
+        show('ok', 'Thanks! Your message has been sent — we’ll get back to you shortly.');
+      } catch (err) {
+        show('err', err.message);
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

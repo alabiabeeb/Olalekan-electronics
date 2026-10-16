@@ -1,0 +1,20 @@
+{
+  "name": "olamileken-electronics",
+  "version": "2.0.0",
+  "description": "WIZZYMONEY Olamileken Electronics — storefront and admin dashboard",
+  "private": true,
+  "main": "server/index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "seed": "node server/seed.js --reset"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "multer": "^2.0.2"
+  }
+}
