@@ -1,45 +1,40 @@
 const crypto = require('node:crypto');
-const { adminPassword } = require('./config');
+const { adminPassword, sessionSecret } = require('./config');
 const { HttpError } = require('./validate');
 
 const SESSION_TTL_MS = 12 * 60 * 60 * 1000;
-const sessions = new Map(); // token -> expiry timestamp
+
+const sha256 = (s) => crypto.createHash('sha256').update(String(s)).digest();
+const sign = (payload) => crypto.createHmac('sha256', sessionSecret).update(payload).digest('base64url');
 
 function passwordMatches(candidate) {
   // Hash both sides so timingSafeEqual gets equal-length buffers.
-  const a = crypto.createHash('sha256').update(String(candidate)).digest();
-  const b = crypto.createHash('sha256').update(adminPassword).digest();
-  return crypto.timingSafeEqual(a, b);
+  return crypto.timingSafeEqual(sha256(candidate), sha256(adminPassword));
 }
 
+// Tokens are stateless ("<expiry>.<signature>") so they work across serverless instances.
 function login(password) {
   if (!passwordMatches(password || '')) throw new HttpError(401, 'Incorrect password.');
-  const token = crypto.randomBytes(32).toString('hex');
-  sessions.set(token, Date.now() + SESSION_TTL_MS);
-  return token;
+  const expires = String(Date.now() + SESSION_TTL_MS);
+  return `${expires}.${sign(expires)}`;
 }
 
-function logout(token) {
-  sessions.delete(token);
-}
-
-function tokenFrom(req) {
-  const header = req.get('authorization') || '';
-  return header.startsWith('Bearer ') ? header.slice(7) : '';
+function tokenIsValid(token) {
+  const [expires, signature] = String(token).split('.');
+  if (!expires || !signature) return false;
+  const expected = sign(expires);
+  if (signature.length !== expected.length) return false;
+  return crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expected)) && Number(expires) > Date.now();
 }
 
 function requireAdmin(req, res, next) {
-  const token = tokenFrom(req);
-  const expiry = sessions.get(token);
-  if (!expiry || expiry < Date.now()) {
-    sessions.delete(token);
-    return next(new HttpError(401, 'Please log in again.'));
-  }
-  req.adminToken = token;
+  const header = req.get('authorization') || '';
+  const token = header.startsWith('Bearer ') ? header.slice(7) : '';
+  if (!tokenIsValid(token)) return next(new HttpError(401, 'Please log in again.'));
   next();
 }
 
-// Small in-memory limiter for public form endpoints and login.
+// Best-effort in-memory limiter for form endpoints and login (per server instance).
 function rateLimit({ windowMs, max }) {
   const hits = new Map();
   return (req, res, next) => {
@@ -49,8 +44,9 @@ function rateLimit({ windowMs, max }) {
     if (recent.length >= max) return next(new HttpError(429, 'Too many requests — please wait a moment and try again.'));
     recent.push(now);
     hits.set(key, recent);
+    if (hits.size > 5000) hits.clear();
     next();
   };
 }
 
-module.exports = { login, logout, requireAdmin, rateLimit, tokenFrom };
+module.exports = { login, requireAdmin, rateLimit };

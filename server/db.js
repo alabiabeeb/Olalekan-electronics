@@ -1,16 +1,14 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { DatabaseSync } = require('node:sqlite');
-const { dbFile } = require('./config');
+const { createClient } = require('@libsql/client');
+const config = require('./config');
 
-fs.mkdirSync(path.dirname(dbFile), { recursive: true });
-const db = new DatabaseSync(dbFile);
+if (config.databaseUrl.startsWith('file:')) fs.mkdirSync(path.dirname(config.localDbFile), { recursive: true });
 
-db.exec(`
-  PRAGMA journal_mode = WAL;
-  PRAGMA foreign_keys = ON;
+const client = createClient({ url: config.databaseUrl, authToken: config.databaseAuthToken });
 
-  CREATE TABLE IF NOT EXISTS products (
+const SCHEMA = [
+  `CREATE TABLE IF NOT EXISTS products (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,
     name        TEXT    NOT NULL,
     category    TEXT    NOT NULL,
@@ -22,10 +20,9 @@ db.exec(`
     is_new      INTEGER NOT NULL DEFAULT 0,
     featured    INTEGER NOT NULL DEFAULT 0,
     created_at  TEXT    NOT NULL DEFAULT (datetime('now'))
-  );
-  CREATE INDEX IF NOT EXISTS idx_products_category ON products(category);
-
-  CREATE TABLE IF NOT EXISTS orders (
+  )`,
+  'CREATE INDEX IF NOT EXISTS idx_products_category ON products(category)',
+  `CREATE TABLE IF NOT EXISTS orders (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     reference       TEXT    NOT NULL UNIQUE,
     customer_name   TEXT    NOT NULL,
@@ -38,18 +35,16 @@ db.exec(`
     has_unpriced    INTEGER NOT NULL DEFAULT 0,
     status          TEXT    NOT NULL DEFAULT 'pending',
     created_at      TEXT    NOT NULL DEFAULT (datetime('now'))
-  );
-
-  CREATE TABLE IF NOT EXISTS order_items (
+  )`,
+  `CREATE TABLE IF NOT EXISTS order_items (
     id         INTEGER PRIMARY KEY AUTOINCREMENT,
     order_id   INTEGER NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
     product_id INTEGER,
     name       TEXT    NOT NULL,
     price      INTEGER,
     quantity   INTEGER NOT NULL
-  );
-
-  CREATE TABLE IF NOT EXISTS messages (
+  )`,
+  `CREATE TABLE IF NOT EXISTS messages (
     id         INTEGER PRIMARY KEY AUTOINCREMENT,
     name       TEXT NOT NULL,
     phone      TEXT NOT NULL DEFAULT '',
@@ -58,44 +53,60 @@ db.exec(`
     message    TEXT NOT NULL,
     is_read    INTEGER NOT NULL DEFAULT 0,
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
-  );
-
-  CREATE TABLE IF NOT EXISTS subscribers (
+  )`,
+  `CREATE TABLE IF NOT EXISTS subscribers (
     id         INTEGER PRIMARY KEY AUTOINCREMENT,
     email      TEXT NOT NULL UNIQUE COLLATE NOCASE,
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
-  );
-`);
+  )`,
+];
 
-// Runs fn inside a transaction, rolling back if it throws.
-function transaction(fn) {
-  db.exec('BEGIN');
-  try {
-    const result = fn();
-    db.exec('COMMIT');
-    return result;
-  } catch (err) {
-    db.exec('ROLLBACK');
-    throw err;
-  }
-}
+// libsql rows are array-like objects; convert to plain objects.
+const plain = (row) => (row ? { ...row } : undefined);
 
-function seedProducts({ reset = false } = {}) {
-  const { count } = db.prepare('SELECT COUNT(*) AS count FROM products').get();
+const db = {
+  async all(sql, args = []) {
+    return (await client.execute({ sql, args })).rows.map(plain);
+  },
+  async get(sql, args = []) {
+    return plain((await client.execute({ sql, args })).rows[0]);
+  },
+  async run(sql, args = []) {
+    const r = await client.execute({ sql, args });
+    return { changes: r.rowsAffected, lastInsertRowid: r.lastInsertRowid == null ? null : Number(r.lastInsertRowid) };
+  },
+  // Runs statements atomically: all succeed or none do.
+  async batch(statements) {
+    return client.batch(statements.map(([sql, args = []]) => ({ sql, args })), 'write');
+  },
+};
+
+async function seedProducts({ reset = false } = {}) {
+  const { count } = await db.get('SELECT COUNT(*) AS count FROM products');
   if (count > 0 && !reset) return 0;
 
   const items = require('./data/seed-products.json');
-  const insert = db.prepare(`
-    INSERT INTO products (name, category, summary, description, image, is_new, featured)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-  `);
-  transaction(() => {
-    if (reset) db.exec('DELETE FROM products');
-    for (const p of items) {
-      insert.run(p.name, p.category, p.summary, p.description, p.image, p.isNew ? 1 : 0, p.featured ? 1 : 0);
-    }
-  });
+  const insertSql = `INSERT INTO products (name, category, summary, description, image, is_new, featured)
+                     VALUES (?, ?, ?, ?, ?, ?, ?)`;
+  await db.batch([
+    ...(reset ? [['DELETE FROM products']] : []),
+    ...items.map((p) => [insertSql, [p.name, p.category, p.summary, p.description, p.image, p.isNew ? 1 : 0, p.featured ? 1 : 0]]),
+  ]);
   return items.length;
 }
 
-module.exports = { db, transaction, seedProducts };
+// Creates tables and seeds the catalog once per process (each Vercel cold start).
+let readyPromise;
+function ready() {
+  readyPromise ??= (async () => {
+    await client.batch(SCHEMA, 'write');
+    const seeded = await seedProducts();
+    if (seeded) console.log(`[db] Seeded ${seeded} products from the original catalog.`);
+  })().catch((err) => {
+    readyPromise = undefined; // retry on the next request
+    throw err;
+  });
+  return readyPromise;
+}
+
+module.exports = { db, ready, seedProducts };

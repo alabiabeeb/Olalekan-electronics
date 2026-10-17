@@ -1,6 +1,6 @@
 const crypto = require('node:crypto');
 const express = require('express');
-const { db, transaction } = require('../db');
+const { db } = require('../db');
 const { CATEGORIES, isCategory } = require('../catalog');
 const { whatsappNumber } = require('../config');
 const { rateLimit } = require('../auth');
@@ -22,15 +22,14 @@ const toProduct = (row) => ({
   featured: !!row.featured,
 });
 
-router.get('/categories', (req, res) => {
-  const counts = Object.fromEntries(
-    db.prepare('SELECT category, COUNT(*) AS n FROM products GROUP BY category').all().map((r) => [r.category, r.n]),
-  );
+router.get('/categories', async (req, res) => {
+  const rows = await db.all('SELECT category, COUNT(*) AS n FROM products GROUP BY category');
+  const counts = Object.fromEntries(rows.map((r) => [r.category, r.n]));
   res.json(CATEGORIES.map((c) => ({ ...c, count: counts[c.slug] || 0 })));
 });
 
 // GET /api/products?category=fans&q=tower&sort=price-asc&featured=1&new=1
-router.get('/products', (req, res) => {
+router.get('/products', async (req, res) => {
   const where = [];
   const params = [];
   const { category, q, sort } = req.query;
@@ -56,16 +55,16 @@ router.get('/products', (req, res) => {
   }[sort] || 'is_new DESC, id ASC';
 
   const sql = `SELECT * FROM products ${where.length ? 'WHERE ' + where.join(' AND ') : ''} ORDER BY ${orderBy}`;
-  res.json(db.prepare(sql).all(...params).map(toProduct));
+  res.json((await db.all(sql, params)).map(toProduct));
 });
 
-router.get('/products/:id', (req, res) => {
-  const row = db.prepare('SELECT * FROM products WHERE id = ?').get(v.id(req.params.id));
+router.get('/products/:id', async (req, res) => {
+  const row = await db.get('SELECT * FROM products WHERE id = ?', [v.id(req.params.id)]);
   if (!row) throw new v.HttpError(404, 'Product not found.');
   res.json(toProduct(row));
 });
 
-router.post('/orders', formLimit, (req, res) => {
+router.post('/orders', formLimit, async (req, res) => {
   const body = req.body || {};
   const customer = {
     name: v.text(body.name, 'Name', { required: true, max: 100 }),
@@ -84,28 +83,29 @@ router.post('/orders', formLimit, (req, res) => {
   if (requested.length > 50) throw new v.HttpError(400, 'Too many items in one order.');
 
   // Prices always come from the database, never from the browser.
-  const getProduct = db.prepare('SELECT id, name, price, in_stock FROM products WHERE id = ?');
-  const items = requested.map((item) => {
-    const product = getProduct.get(v.id(item.productId));
+  const items = [];
+  for (const item of requested) {
+    const product = await db.get('SELECT id, name, price, in_stock FROM products WHERE id = ?', [v.id(item.productId)]);
     if (!product) throw new v.HttpError(400, 'One of the products in your cart no longer exists.');
     if (!product.in_stock) throw new v.HttpError(400, `${product.name} is currently out of stock.`);
     const quantity = Number(item.quantity);
     if (!Number.isInteger(quantity) || quantity < 1 || quantity > 99) throw new v.HttpError(400, 'Invalid quantity.');
-    return { productId: product.id, name: product.name, price: product.price, quantity };
-  });
+    items.push({ productId: product.id, name: product.name, price: product.price, quantity });
+  }
 
   const total = items.reduce((sum, i) => sum + (i.price || 0) * i.quantity, 0);
   const hasUnpriced = items.some((i) => i.price == null);
   const reference = 'OE-' + crypto.randomBytes(3).toString('hex').toUpperCase();
 
-  transaction(() => {
-    const { lastInsertRowid: orderId } = db
-      .prepare(`INSERT INTO orders (reference, customer_name, phone, email, address, delivery_method, note, total, has_unpriced)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`)
-      .run(reference, customer.name, customer.phone, customer.email, customer.address, customer.deliveryMethod, customer.note, total, hasUnpriced ? 1 : 0);
-    const insertItem = db.prepare('INSERT INTO order_items (order_id, product_id, name, price, quantity) VALUES (?, ?, ?, ?, ?)');
-    for (const i of items) insertItem.run(orderId, i.productId, i.name, i.price, i.quantity);
-  });
+  await db.batch([
+    [`INSERT INTO orders (reference, customer_name, phone, email, address, delivery_method, note, total, has_unpriced)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [reference, customer.name, customer.phone, customer.email, customer.address, customer.deliveryMethod, customer.note, total, hasUnpriced ? 1 : 0]],
+    ...items.map((i) => [
+      'INSERT INTO order_items (order_id, product_id, name, price, quantity) VALUES ((SELECT id FROM orders WHERE reference = ?), ?, ?, ?, ?)',
+      [reference, i.productId, i.name, i.price, i.quantity],
+    ]),
+  ]);
 
   // Pre-filled WhatsApp message so the customer can ping the shop straight away.
   const naira = (n) => '₦' + n.toLocaleString('en-NG');
@@ -121,7 +121,7 @@ router.post('/orders', formLimit, (req, res) => {
   res.status(201).json({ reference, total, hasUnpriced, whatsappUrl });
 });
 
-router.post('/messages', formLimit, (req, res) => {
+router.post('/messages', formLimit, async (req, res) => {
   const body = req.body || {};
   const name = v.text(body.name, 'Name', { required: true, max: 100 });
   const phone = v.phone(body.phone);
@@ -130,13 +130,13 @@ router.post('/messages', formLimit, (req, res) => {
   const subject = v.text(body.subject, 'Subject', { max: 100 });
   const message = v.text(body.message, 'Message', { required: true, max: 3000 });
 
-  db.prepare('INSERT INTO messages (name, phone, email, subject, message) VALUES (?, ?, ?, ?, ?)').run(name, phone, email, subject, message);
+  await db.run('INSERT INTO messages (name, phone, email, subject, message) VALUES (?, ?, ?, ?, ?)', [name, phone, email, subject, message]);
   res.status(201).json({ ok: true });
 });
 
-router.post('/subscribe', formLimit, (req, res) => {
+router.post('/subscribe', formLimit, async (req, res) => {
   const email = v.email(req.body?.email, 'Email', { required: true });
-  db.prepare('INSERT OR IGNORE INTO subscribers (email) VALUES (?)').run(email);
+  await db.run('INSERT OR IGNORE INTO subscribers (email) VALUES (?)', [email]);
   res.status(201).json({ ok: true });
 });
 

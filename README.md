@@ -3,11 +3,11 @@
 Storefront and admin dashboard for an electronics shop in Ogunpa, Ibadan.
 
 - **Frontend:** plain HTML, CSS and JavaScript modules in `public/` (no build step).
-- **Backend:** Node.js + Express in `server/`, data in SQLite through Node's built-in `node:sqlite`.
+- **Backend:** Node.js + Express in `server/`, data in SQLite via `@libsql/client`: a local file in development, a hosted [Turso](https://turso.tech) database in production.
 
 ## Run it
 
-Requires Node.js 22.13 or newer.
+Requires Node.js 20 or newer.
 
 ```bash
 npm install
@@ -73,17 +73,36 @@ public/            static site served by Express
   images/          product photos (new-arrival/, store/, stock/)
   uploads/         images uploaded from the admin dashboard
 server/
-  index.js         Express app, security headers, error handling
-  db.js            schema + seeding
+  app.js           Express app, security headers, error handling
+  index.js         starts the app locally (api/index.js exports it for Vercel)
+  db.js            schema, seeding, database helpers
+  storage.js       product image uploads (Vercel Blob or local disk)
   catalog.js       categories and order statuses
   routes/          public and admin API routes
   data/            seed catalog (and the SQLite database at runtime)
 _old-site/         the previous static site, kept for reference
 ```
 
+## Deploying to Vercel
+
+Vercel serves `public/` from its CDN and runs the Express app as a serverless function (`api/index.js`). `vercel.json` sends `/api/*` to the function and lets `/shop` load `shop.html`. Vercel functions have no permanent disk, so production data lives in hosted services:
+
+| What | Service | Environment variables |
+| --- | --- | --- |
+| Database | [Turso](https://turso.tech) (hosted SQLite, free tier) | `TURSO_DATABASE_URL`, `TURSO_AUTH_TOKEN` |
+| Product photos you upload | Vercel Blob (free tier) | `BLOB_READ_WRITE_TOKEN` |
+
+One-time setup in the Vercel dashboard for the project:
+
+1. **Storage → Create Database → Turso** (Marketplace). Connect it to this project. This adds the `TURSO_*` variables.
+2. **Storage → Create → Blob**. Connect it to this project. This adds `BLOB_READ_WRITE_TOKEN`.
+3. **Settings → Environment Variables**: add `ADMIN_PASSWORD`, `SESSION_SECRET` (a long random string) and `WHATSAPP_NUMBER`.
+4. **Deployments → Redeploy**, or push a commit.
+
+On the first request the app creates its tables and loads the catalog automatically. To reset the live catalog from your computer, put the two `TURSO_*` values in `.env` and run `npm run seed`. Remove them from `.env` afterwards so local testing doesn't touch live data.
+
 ## Before going live
 
-- Set a strong `ADMIN_PASSWORD` in `.env`.
-- Run behind HTTPS, for example on Render, Railway or a VPS with Caddy or Nginx in front.
-- Back up `server/data/store.db` and `public/uploads/`.
+- Set a strong `ADMIN_PASSWORD`.
 - Add real prices in the dashboard.
+- On another host instead of Vercel, back up `server/data/store.db` and `public/uploads/`, or set the Turso and Blob variables there too.
